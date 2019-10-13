@@ -1,0 +1,26 @@
+body {
+  padding: 20px;
+  font-family: "Source Sans Pro";
+  font-style: normal;
+}
+
+h1, h2 {
+  font-weight: normal;
+  line-height: 1.25em;
+}
+
+#selectall {
+  margin-bottom: 20px;
+}
+
+label {
+  margin-left: 5px;
+}
+
+#btn-generate {
+  background-color: lightblue;
+  margin-top: 20px;
+  font-size: 1.25em;
+  padding: 10px 20px;
+}
+
