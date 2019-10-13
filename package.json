@@ -1,0 +1,17 @@
+{
+  "name": "character-generator",
+  "version": "1.0.0",
+  "description": "Create characters for story and illustration",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "character",
+    "generator",
+    "story",
+    "illustration"
+  ],
+  "author": "Ryan Regalado",
+  "license": "ISC"
+}
