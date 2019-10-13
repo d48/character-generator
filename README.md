@@ -2,6 +2,8 @@
 
 Randomizes a character attribute list to be used for ideas in story or illustrations.
 
+![screenshot](https://content.screencast.com/users/Ryan.Regalado/folders/Default/media/559aff0a-f66e-47b1-92c1-558eb01fe46c/IMG_1283.PNG)
+
 # Usage
 
 ```
