@@ -1,4 +1,4 @@
-# Character Generator
+zRzraracter Generator
 
 Randomizes a character attribute list to be used for ideas in story or illustrations.
 
@@ -12,7 +12,7 @@ npm run start
 ```
 
 1. Open webpage on localhost:3000
-2. Click on "Generatre Character" button to see output
+2. Click on "Generate Character" button to see output
 
 # Roadmap
 
