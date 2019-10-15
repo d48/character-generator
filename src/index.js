@@ -3,10 +3,31 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 class AttributeSelectorHeader extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectall: true
+    }
+
+    this.handleInputChange = this.handleInputChange.bind(this);
+  }
+
+  handleInputChange(event) {
+    const value = event.target.checked;
+    const name = event.target.name;
+
+    this.setState({
+      [name]: value
+    });
+  }
+
   render() {
     return (
       <div>
-        <input type="checkbox" id="selectall" name="selectall" />    
+        <input type="checkbox" id="selectall" name="selectall"  
+          checked={this.state.selectall}
+          onChange={this.handleInputChange}
+        />    
         <label htmlFor="selectall">Select All</label>
       </div>
     )
@@ -19,15 +40,18 @@ class AttributeSelector extends React.Component {
 
     this.props.attributes.forEach((attribute) => {
       attributeObject.push(
-        <div key={attribute.name}>
-          <input type="checkbox" id={attribute.name} name={attribute.name} />
-          <label htmlFor={attribute.name}>{attribute.name}</label>
+        <div key={attribute.name} class="attribute-listing">
+          <div class="attribute-name">
+            <input type="checkbox" id={attribute.name} name={attribute.name} />
+            <label htmlFor={attribute.name}>{attribute.name}</label>
+          </div>
+          <div class="attribute-result">{attribute.values[0]}</div>
         </div>
       )
     });
 
     return (
-      <div>
+      <div class="attribute-list">
         {attributeObject} 
       </div>
     )

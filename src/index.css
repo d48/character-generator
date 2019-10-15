@@ -18,9 +18,37 @@ label {
 }
 
 #btn-generate {
-  background-color: lightblue;
+  background-color: #bfd3e0;
+  border-radius: 5px;
   margin-top: 20px;
   font-size: 1.25em;
   padding: 10px 20px;
+}
+
+#character-generator-container {
+  box-sizing: border-box;
+  background-color: #eedbd8;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.attribute-list {
+  width: 500px;
+}
+
+.attribute-listing {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
+}
+
+.attribute-name {
+  width: 100px;
+}
+
+.attribute-result {
+  font-weight: bold;
 }
 
