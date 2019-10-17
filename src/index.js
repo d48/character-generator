@@ -24,14 +24,14 @@ class AttributeSelectorHeader extends React.Component {
   render() {
     return (
       <div>
-        <input type="checkbox" id="selectall" name="selectall"  
+        <input type="checkbox" id="selectall" name="selectall"
           checked={this.state.selectall}
           onChange={this.handleInputChange}
-        />    
+        />
         <label htmlFor="selectall">Select All</label>
       </div>
     )
-  }  
+  }
 }
 
 class AttributeSelector extends React.Component {
@@ -40,19 +40,19 @@ class AttributeSelector extends React.Component {
 
     this.props.attributes.forEach((attribute) => {
       attributeObject.push(
-        <div key={attribute.name} class="attribute-listing">
-          <div class="attribute-name">
+        <div key={attribute.name} className="attribute-listing">
+          <div className="attribute-name">
             <input type="checkbox" id={attribute.name} name={attribute.name} />
             <label htmlFor={attribute.name}>{attribute.name}</label>
           </div>
-          <div class="attribute-result">{attribute.values[0]}</div>
+          <div className="attribute-result">{attribute.values[0]}</div>
         </div>
       )
     });
 
     return (
-      <div class="attribute-list">
-        {attributeObject} 
+      <div className="attribute-list">
+        {attributeObject}
       </div>
     )
   }
@@ -70,10 +70,35 @@ class CharacterGeneratorHeader extends React.Component {
 }
 
 class ActionBar extends React.Component {
+  constructor(props) {
+    super()
+
+    this.props = props;
+    this.onClickHandler = this.onClickHandler.bind(this);
+  }
+
+  onClickHandler() {
+    const choices = [];
+    let attributeLength = 0;
+    let attributeIndex = null;
+
+    this.props.attributes.forEach(attribute => {
+      attributeLength = attribute.values.length;
+      attributeIndex = Math.floor(Math.random(attributeLength) * attributeLength);
+
+      choices.push({
+        name: attribute.name,
+        value: attribute.values[attributeIndex]
+      });
+    });
+
+    // pass choices to Attribute Selector component
+  }
+
   render() {
     return (
       <div>
-        <button id="btn-generate">Generate Character</button>
+        <button id="btn-generate" onClick={this.onClickHandler}>Generate Character</button>
       </div>
     )
   }
@@ -84,11 +109,9 @@ class CharacterGenerator extends React.Component {
     return (
       <div>
         <CharacterGeneratorHeader />
-        <form>
-          <AttributeSelectorHeader />
-          <AttributeSelector attributes={this.props.attributes} />
-          <ActionBar />
-        </form>
+        <AttributeSelectorHeader />
+        <AttributeSelector attributes={this.props.attributes} />
+        <ActionBar attributes={this.props.attributes} />
       </div>
     )
   }
