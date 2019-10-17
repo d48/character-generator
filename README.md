@@ -14,6 +14,10 @@ npm run start
 1. Open webpage on localhost:3000
 2. Click on "Generate Character" button to see output
 
+# Todo
+
+* Restructure component nesting so state is managed with parent and child relationships accordingly, e.g., AttributeHeader -> AttributeSelector -> ActionBar
+
 # Roadmap
 
 * Deploy to Heroku
