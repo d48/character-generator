@@ -10,7 +10,7 @@ class AttributeSelectorHeader extends React.Component {
     }
 
     this.onSelectAllChange = this.onSelectAllChange.bind(this);
-    this.attributes = props.attributes;
+    this.props = props;
   }
 
   onSelectAllChange(event) {
@@ -30,7 +30,7 @@ class AttributeSelectorHeader extends React.Component {
           onChange={this.onSelectAllChange}
         />
         <label htmlFor="selectall">Select All</label>
-        <AttributeSelector attributes={this.attributes} />
+        <AttributeSelector {...this.props} />
       </div>
     )
   }
@@ -57,7 +57,7 @@ class AttributeSelector extends React.Component {
         <div className="attribute-list">
           {attributeObject}
         </div>
-        <ActionBar attributes={this.props.attributes} />
+        <ActionBar {...this.props} />
       </div>
     )
   }
@@ -69,6 +69,7 @@ class ActionBar extends React.Component {
 
     this.props = props;
     this.onClickHandler = this.onClickHandler.bind(this);
+    this.buttonLabel = props.buttonLabel;
   }
 
   onClickHandler() {
@@ -93,52 +94,44 @@ class ActionBar extends React.Component {
   render() {
     return (
       <div>
-        <button id="btn-generate" onClick={this.onClickHandler}>Generate Character</button>
+        <button
+          id="btn-generate"
+          onClick={this.onClickHandler}
+        >{this.buttonLabel}</button>
       </div>
     )
   }
 }
 
 class CharacterGeneratorHeader extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.title = props.title;
-    this.description = props.description;;
-  }
-
   render() {
     return (
       <div>
-        <h1>{this.title}</h1>
-        <h2>{this.description}</h2>
+        <h1>{this.props.title}</h1>
+        <h2>{this.props.description}</h2>
       </div>
     )
   }
 }
 
-
-
 class CharacterGenerator extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.settings = props.settings;
-  }
-
   render() {
     return (
       <div>
         <CharacterGeneratorHeader
-          title={this.settings.title}
-          description={this.settings.description}
+          title={this.props.settings.title}
+          description={this.props.settings.description}
         />
-        <AttributeSelectorHeader attributes={this.props.attributes} />
+        <AttributeSelectorHeader
+          buttonLabel={this.props.settings.buttonLabel}
+          attributes={this.props.attributes}
+        />
       </div>
     )
   }
 }
 
+// TODO: move to configuration.json
 const SETTINGS = {
     title: 'Character Generator',
     description: 'Select attributes that you would like to include in the generated character description.',
