@@ -1,4 +1,4 @@
-zRzraracter Generator
+Character Generator
 
 Randomizes a character attribute list to be used for ideas in story or illustrations.
 
