@@ -36,29 +36,23 @@ class AttributeSelectorHeader extends React.Component {
   }
 }
 
+const groupBy = (objArray, property) => {
+  return objArray.reduce((acc, obj) => {
+    var key = obj[property];
+    acc[key] = '';
+    return acc;
+  }, {});
+};
+
 class AttributeSelector extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
-    this.state = {
-      called: false
-    };
-
-    this.setChoices = () => {
-      this.setState({
-        called: true
-      });
-
-      console.log('state set in AttroibuteSelector');
+    this.state = groupBy(this.props.attributes, 'name');
+    this.setChoices = (choices) => {
+      this.setState(choices);
     };
   }
-
-
-// {
-//     "Hair style": '',
-//     "Weight": 0,
-//     "Height": 0
-// }
 
   render() {
     const attributeObject = [];
@@ -70,7 +64,7 @@ class AttributeSelector extends React.Component {
             <input type="checkbox" id={attribute.name} name={attribute.name} />
             <label htmlFor={attribute.name}>{attribute.name}</label>
           </div>
-          <div className="attribute-result">{this.state.called.toString()}</div>
+          <div className="attribute-result">{this.state[attribute.name]}</div>
         </div>
       )
     });
@@ -88,15 +82,14 @@ class AttributeSelector extends React.Component {
 
 class ActionBar extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
 
-    this.props = props;
     this.onClickHandler = this.onClickHandler.bind(this);
-    this.buttonLabel = props.buttonLabel;
+    this.buttonLabel = this.props.buttonLabel;
   }
 
   onClickHandler() {
-    const choices = [];
+    const choices = {};
     let attributeLength = 0;
     let attributeIndex = null;
 
@@ -104,15 +97,10 @@ class ActionBar extends React.Component {
       attributeLength = attribute.values.length;
       attributeIndex = Math.floor(Math.random(attributeLength) * attributeLength);
 
-      choices.push({
-        name: attribute.name,
-        value: attribute.values[attributeIndex]
-      });
+      choices[attribute.name] = attribute.values[attributeIndex];
     });
 
-    // pass choices to Attribute Selector component
-    console.log('choice', choices);
-    this.props.onChoice();
+    this.props.onChoice(choices);
   }
 
   render() {
