@@ -9,10 +9,11 @@ class AttributeSelectorHeader extends React.Component {
       selectall: true
     }
 
-    this.handleInputChange = this.handleInputChange.bind(this);
+    this.onSelectAllChange = this.onSelectAllChange.bind(this);
+    this.attributes = props.attributes;
   }
 
-  handleInputChange(event) {
+  onSelectAllChange(event) {
     const value = event.target.checked;
     const name = event.target.name;
 
@@ -26,9 +27,10 @@ class AttributeSelectorHeader extends React.Component {
       <div>
         <input type="checkbox" id="selectall" name="selectall"
           checked={this.state.selectall}
-          onChange={this.handleInputChange}
+          onChange={this.onSelectAllChange}
         />
         <label htmlFor="selectall">Select All</label>
+        <AttributeSelector attributes={this.attributes} />
       </div>
     )
   }
@@ -51,19 +53,11 @@ class AttributeSelector extends React.Component {
     });
 
     return (
-      <div className="attribute-list">
-        {attributeObject}
-      </div>
-    )
-  }
-}
-
-class CharacterGeneratorHeader extends React.Component {
-  render() {
-    return (
       <div>
-        <h1>Character Generator</h1>
-        <h2>Select attributes that you would like to include in the generated character description.</h2>
+        <div className="attribute-list">
+          {attributeObject}
+        </div>
+        <ActionBar attributes={this.props.attributes} />
       </div>
     )
   }
@@ -71,7 +65,7 @@ class CharacterGeneratorHeader extends React.Component {
 
 class ActionBar extends React.Component {
   constructor(props) {
-    super()
+    super(props)
 
     this.props = props;
     this.onClickHandler = this.onClickHandler.bind(this);
@@ -93,6 +87,7 @@ class ActionBar extends React.Component {
     });
 
     // pass choices to Attribute Selector component
+    console.log('choice', choices);
   }
 
   render() {
@@ -104,19 +99,51 @@ class ActionBar extends React.Component {
   }
 }
 
-class CharacterGenerator extends React.Component {
+class CharacterGeneratorHeader extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.title = props.title;
+    this.description = props.description;;
+  }
+
   render() {
     return (
       <div>
-        <CharacterGeneratorHeader />
-        <AttributeSelectorHeader />
-        <AttributeSelector attributes={this.props.attributes} />
-        <ActionBar attributes={this.props.attributes} />
+        <h1>{this.title}</h1>
+        <h2>{this.description}</h2>
       </div>
     )
   }
 }
 
+
+
+class CharacterGenerator extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.settings = props.settings;
+  }
+
+  render() {
+    return (
+      <div>
+        <CharacterGeneratorHeader
+          title={this.settings.title}
+          description={this.settings.description}
+        />
+        <AttributeSelectorHeader attributes={this.props.attributes} />
+      </div>
+    )
+  }
+}
+
+const SETTINGS = {
+    title: 'Character Generator',
+    description: 'Select attributes that you would like to include in the generated character description.',
+    buttonLabel: 'Generate Character'
+};
 
 const ATTRIBUTES = [
   { name: 'Hair style', description: 'Spikey, long, short, etc', values: ['spikey', 'long', 'short'] },
@@ -127,7 +154,7 @@ const ATTRIBUTES = [
 ];
 
 ReactDOM.render(
-  <CharacterGenerator attributes={ATTRIBUTES} />,
+  <CharacterGenerator settings={SETTINGS} attributes={ATTRIBUTES} />,
   document.getElementById('character-generator-container')
 )
 
