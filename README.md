@@ -5,7 +5,7 @@ Randomizes a character attribute list to be used for ideas in story or illustrat
 ![screenshot](https://content.screencast.com/users/Ryan.Regalado/folders/Default/media/559aff0a-f66e-47b1-92c1-558eb01fe46c/IMG_1283.PNG)
 
 ## Note
-App will be setup to handle attribute configuration to handle any random generation of an object. Example: Auto-generate worlds, vehicles, stories. The first use case is for personal character ideation.
+App will be setup to handle attribute configuration for random generation of any object of interest. Example: Auto-generate worlds, vehicles, stories. The first use case is for personal character ideation.
 
 # Usage
 
