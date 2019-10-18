@@ -48,6 +48,14 @@ class AttributeSelector extends React.Component {
   constructor(props) {
     super(props);
 
+    // TODO: setup state object to look like this
+    // {
+    //   "attrib name": {
+    //     checked: true,
+    //     value: ''
+    //   }
+    // }
+
     this.state = groupBy(this.props.attributes, 'name');
     this.setChoices = (choices) => {
       this.setState(choices);
