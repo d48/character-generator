@@ -37,6 +37,29 @@ class AttributeSelectorHeader extends React.Component {
 }
 
 class AttributeSelector extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {
+      called: false
+    };
+
+    this.setChoices = () => {
+      this.setState({
+        called: true
+      });
+
+      console.log('state set in AttroibuteSelector');
+    };
+  }
+
+
+// {
+//     "Hair style": '',
+//     "Weight": 0,
+//     "Height": 0
+// }
+
   render() {
     const attributeObject = [];
 
@@ -47,7 +70,7 @@ class AttributeSelector extends React.Component {
             <input type="checkbox" id={attribute.name} name={attribute.name} />
             <label htmlFor={attribute.name}>{attribute.name}</label>
           </div>
-          <div className="attribute-result">{attribute.values[0]}</div>
+          <div className="attribute-result">{this.state.called.toString()}</div>
         </div>
       )
     });
@@ -57,7 +80,7 @@ class AttributeSelector extends React.Component {
         <div className="attribute-list">
           {attributeObject}
         </div>
-        <ActionBar {...this.props} />
+        <ActionBar onChoice={this.setChoices} {...this.props} />
       </div>
     )
   }
@@ -89,15 +112,15 @@ class ActionBar extends React.Component {
 
     // pass choices to Attribute Selector component
     console.log('choice', choices);
+    this.props.onChoice();
   }
 
   render() {
     return (
       <div>
-        <button
-          id="btn-generate"
-          onClick={this.onClickHandler}
-        >{this.buttonLabel}</button>
+        <button id="btn-generate" onClick={this.onClickHandler}>
+          {this.buttonLabel}
+        </button>
       </div>
     )
   }
