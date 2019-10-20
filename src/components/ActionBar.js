@@ -1,4 +1,5 @@
 import React from 'react';
+import { getRandomIndex } from '../utils/helpers';
 
 class ActionBar extends React.Component {
   constructor(props) {
@@ -10,14 +11,9 @@ class ActionBar extends React.Component {
 
   onClickHandler() {
     const choices = {};
-    let attributeLength = 0;
-    let attributeIndex = null;
 
     this.props.attributes.forEach(attribute => {
-      attributeLength = attribute.values.length;
-      attributeIndex = Math.floor(Math.random(attributeLength) * attributeLength);
-
-      choices[attribute.name] = attribute.values[attributeIndex];
+      choices[attribute.name] = attribute.values[getRandomIndex(attribute.values.length)];
     });
 
     this.props.onChoice(choices);

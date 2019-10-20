@@ -7,4 +7,6 @@ const groupByAndSetValue = (objArray, property, initialValue) => {
   }, {});
 };
 
-export { groupByAndSetValue };
+const getRandomIndex = num => Math.floor(Math.random(num) * num);
+
+export { groupByAndSetValue, getRandomIndex };
