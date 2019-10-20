@@ -13,11 +13,8 @@ class AttributeSelectorHeader extends React.Component {
   }
 
   onSelectAllChange(event) {
-    const value = event.target.checked;
-    const name = event.target.name;
-
     this.setState({
-      [name]: value
+      [event.target.name]: event.target.checked
     });
   }
 

@@ -3,9 +3,6 @@ import ReactDOM from 'react-dom';
 import CharacterGenerator from './components/CharacterGenerator.js';
 import './index.css';
 
-
-
-
 // TODO: move to configuration.json
 const SETTINGS = {
     title: 'Character Generator',
