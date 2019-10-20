@@ -36,10 +36,11 @@ class AttributeSelectorHeader extends React.Component {
   }
 }
 
-const groupBy = (objArray, property) => {
+const groupByAndSetValue = (objArray, property, initialValue) => {
   return objArray.reduce((acc, obj) => {
     var key = obj[property];
-    acc[key] = '';
+    acc[key] = initialValue;
+
     return acc;
   }, {});
 };
@@ -48,34 +49,65 @@ class AttributeSelector extends React.Component {
   constructor(props) {
     super(props);
 
-    // TODO: setup state object to look like this
-    // {
-    //   "attrib name": {
-    //     checked: true,
-    //     value: ''
-    //   }
-    // }
-
-    this.state = groupBy(this.props.attributes, 'name');
-    this.setChoices = (choices) => {
-      this.setState(choices);
+    this.values = groupByAndSetValue(this.props.attributes, 'name', '');
+    this.checked = groupByAndSetValue(this.props.attributes, 'name', true);
+    this.state = {
+      checked: {...this.checked},
+      values: {...this.values}
     };
+
+    this.setChoices = (choices) => {
+      this.setState({
+        values: {...this.state.values, ...choices}
+      });
+    }
+
+    this.onChangeHandler = this.onChangeHandler.bind(this);
+  }
+
+  onChangeHandler(event) {
+    const value = event.target.checked;
+    const name = event.target.name;
+
+    this.setState((state) => {
+      return {
+        checked: {
+          ...state.checked,
+          [name]: value
+        }
+      }
+    });
   }
 
   render() {
     const attributeObject = [];
 
-    this.props.attributes.forEach((attribute) => {
+    for(let key in this.state.checked) {
+
       attributeObject.push(
-        <div key={attribute.name} className="attribute-listing">
+        <div key={key} className="attribute-listing">
           <div className="attribute-name">
-            <input type="checkbox" id={attribute.name} name={attribute.name} />
-            <label htmlFor={attribute.name}>{attribute.name}</label>
+            <input
+              type="checkbox"
+              id={key}
+              name={key}
+              checked={this.state.checked[key]}
+              onChange={this.onChangeHandler}
+            />
+            <label htmlFor={key}>{key}</label>
           </div>
-          <div className="attribute-result">{this.state[attribute.name]}</div>
+
+        { /* conditionally show value */ }
+        {this.state.checked[key] ?
+          (
+          <div className="attribute-result">{this.state.values[key]}</div>
+          )
+          : null
+        }
+
         </div>
-      )
-    });
+      );
+    };
 
     return (
       <div>
