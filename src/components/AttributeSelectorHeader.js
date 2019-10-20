@@ -8,8 +8,8 @@ class AttributeSelectorHeader extends React.Component {
       selectall: true
     }
 
-    this.onSelectAllChange = this.onSelectAllChange.bind(this);
     this.props = props;
+    this.onSelectAllChange = this.onSelectAllChange.bind(this);
   }
 
   onSelectAllChange(event) {
@@ -26,7 +26,7 @@ class AttributeSelectorHeader extends React.Component {
           onChange={this.onSelectAllChange}
         />
         <label htmlFor="selectall">Select All</label>
-        <AttributeSelector {...this.props} selectall/>
+        <AttributeSelector {...this.props} selectall={this.state.selectall} />
       </div>
     )
   }

@@ -1,14 +1,6 @@
 import React from 'react';
 import ActionBar from './ActionBar';
-
-const groupByAndSetValue = (objArray, property, initialValue) => {
-  return objArray.reduce((acc, obj) => {
-    var key = obj[property];
-    acc[key] = initialValue;
-
-    return acc;
-  }, {});
-};
+import { groupByAndSetValue } from '../utils/helpers';
 
 class AttributeSelector extends React.Component {
   constructor(props) {
