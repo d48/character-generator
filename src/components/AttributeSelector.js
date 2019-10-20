@@ -1,31 +1,7 @@
 import React from 'react';
 import ActionBar from './ActionBar';
+import AttributeRow from './AttributeRow';
 import { groupByAndSetValue } from '../utils/helpers';
-
-function AttributeRow(props) {
-  return (
-    <div className="attribute-listing">
-      <div className="attribute-name">
-        <input
-          type="checkbox"
-          id={props.name}
-          name={props.name}
-          checked={props.checked}
-          onChange={props.onChangeHandler}
-        />
-        <label htmlFor={props.name}>{props.name}</label>
-      </div>
-
-      { /* conditionally show value */}
-      {props.checked ?
-        (
-          <div className="attribute-result">{props.result}</div>
-        )
-        : null
-      }
-    </div>
-  )
-}
 
 class AttributeSelector extends React.Component {
   constructor(props) {
@@ -66,18 +42,16 @@ class AttributeSelector extends React.Component {
     const attributeObject = [];
 
     for (let key in this.state.checked) {
-      let attribData = {
-        key: key,
-        name: key,
-        checked: this.state.checked[key],
-        onChangeHandler: this.onChangeHandler,
-        result: this.state.values[key]
-      };
-
       attributeObject.push(
-        <AttributeRow {...attribData} />
+        <AttributeRow 
+          key={key}
+          name={key}
+          checked={this.state.checked[key]}
+          onChangeHandler={this.onChangeHandler}
+          result={this.state.values[key]}
+         />
       );
-    };
+    }
 
     return (
       <div>
