@@ -24,6 +24,12 @@ class AttributeSelector extends React.Component {
     this.onChangeHandler = this.onChangeHandler.bind(this);
   }
 
+  setChecked(value) {
+    this.setState({
+      checked: { ...this.state.checked, ...groupByAndSetValue(this.props.attributes, 'name', value)}
+    });
+  }
+
   onChangeHandler(event) {
     const value = event.target.checked;
     const name = event.target.name;
@@ -43,7 +49,7 @@ class AttributeSelector extends React.Component {
 
     for (let key in this.state.checked) {
       attributeObject.push(
-        <AttributeRow 
+        <AttributeRow
           key={key}
           name={key}
           checked={this.state.checked[key]}

@@ -10,12 +10,17 @@ class AttributeSelectorHeader extends React.Component {
 
     this.props = props;
     this.onSelectAllChange = this.onSelectAllChange.bind(this);
+    this.attributeSelectorRef = React.createRef();
   }
 
   onSelectAllChange(event) {
+    const value = event.target.checked;
+
     this.setState({
-      [event.target.name]: event.target.checked
+      [event.target.name]: value
     });
+
+    this.attributeSelectorRef.current.setChecked(value);
   }
 
   render() {
@@ -26,7 +31,7 @@ class AttributeSelectorHeader extends React.Component {
           onChange={this.onSelectAllChange}
         />
         <label htmlFor="selectall">Select All</label>
-        <AttributeSelector {...this.props} selectall={this.state.selectall} />
+        <AttributeSelector {...this.props} ref={this.attributeSelectorRef} />
       </div>
     )
   }
