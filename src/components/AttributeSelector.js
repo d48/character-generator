@@ -2,6 +2,31 @@ import React from 'react';
 import ActionBar from './ActionBar';
 import { groupByAndSetValue } from '../utils/helpers';
 
+function AttributeRow(props) {
+  return (
+    <div className="attribute-listing">
+      <div className="attribute-name">
+        <input
+          type="checkbox"
+          id={props.name}
+          name={props.name}
+          checked={props.checked}
+          onChange={props.onChangeHandler}
+        />
+        <label htmlFor={props.name}>{props.name}</label>
+      </div>
+
+      { /* conditionally show value */}
+      {props.checked ?
+        (
+          <div className="attribute-result">{props.result}</div>
+        )
+        : null
+      }
+    </div>
+  )
+}
+
 class AttributeSelector extends React.Component {
   constructor(props) {
     super(props);
@@ -10,13 +35,13 @@ class AttributeSelector extends React.Component {
     this.checked = groupByAndSetValue(this.props.attributes, 'name', true);
 
     this.state = {
-      checked: {...this.checked},
-      values: {...this.values}
+      checked: { ...this.checked },
+      values: { ...this.values }
     };
 
     this.setChoices = (choices) => {
       this.setState({
-        values: {...this.state.values, ...choices}
+        values: { ...this.state.values, ...choices }
       });
     }
 
@@ -40,30 +65,17 @@ class AttributeSelector extends React.Component {
   render() {
     const attributeObject = [];
 
-    for(let key in this.state.checked) {
+    for (let key in this.state.checked) {
+      let attribData = {
+        key: key,
+        name: key,
+        checked: this.state.checked[key],
+        onChangeHandler: this.onChangeHandler,
+        result: this.state.values[key]
+      };
 
       attributeObject.push(
-        <div key={key} className="attribute-listing">
-          <div className="attribute-name">
-            <input
-              type="checkbox"
-              id={key}
-              name={key}
-              checked={this.state.checked[key]}
-              onChange={this.onChangeHandler}
-            />
-            <label htmlFor={key}>{key}</label>
-          </div>
-
-        { /* conditionally show value */ }
-        {this.state.checked[key] ?
-          (
-          <div className="attribute-result">{this.state.values[key]}</div>
-          )
-          : null
-        }
-
-        </div>
+        <AttributeRow {...attribData} />
       );
     };
 
