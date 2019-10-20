@@ -19,12 +19,10 @@ npm run start
 
 # Todo
 
-* Toggle attribute row visibility 
-* Enable select all toggle
+* Deploy to Netlify
 
 # Roadmap
 
-* Deploy to Netlify
 * Separate attributes in their own json. Later move to persistent store so can push updates separetely.
 * After auto-generating a character, save to a persistent store at a unique URL. This can be shared or revisited
 * Create login via email. Can see saved characters
