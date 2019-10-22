@@ -13,10 +13,7 @@ function AttributeRow(props) {
         />
         <label htmlFor={props.name}>{props.name}</label>
       </div>
-      <div
-        className="six columns attribute-result"
-        style={props.checked ? {} : {opacity:'0'}}
-      >{props.result}</div>
+      <div className="six columns attribute-result">{props.checked ? props.result : ''}</div>
     </div>
   )
 }
