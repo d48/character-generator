@@ -22,7 +22,7 @@ class ActionBar extends React.Component {
   render() {
     return (
       <div>
-        <button id="btn-generate" onClick={this.onClickHandler}>
+        <button id="btn-generate" onClick={this.onClickHandler} class="button-primary">
           {this.buttonLabel}
         </button>
       </div>

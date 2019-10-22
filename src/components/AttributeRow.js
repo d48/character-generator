@@ -2,8 +2,8 @@ import React from 'react';
 
 function AttributeRow(props) {
   return (
-    <div className="attribute-listing">
-      <div className="attribute-name">
+    <div className="row">
+      <div className="six columns">
         <input
           type="checkbox"
           id={props.name}
@@ -17,7 +17,7 @@ function AttributeRow(props) {
       { /* conditionally show value */}
       {props.checked ?
         (
-          <div className="attribute-result">{props.result}</div>
+          <div className="six columns attribute-result">{props.result}</div>
         )
         : null
       }

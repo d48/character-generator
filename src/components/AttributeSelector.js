@@ -55,12 +55,13 @@ class AttributeSelector extends React.Component {
           checked={this.state.checked[key]}
           onChangeHandler={this.onChangeHandler}
           result={this.state.values[key]}
+          class="row"
          />
       );
     }
 
     return (
-      <div>
+      <div class="row">
         <div className="attribute-list">
           {attributeObject}
         </div>
