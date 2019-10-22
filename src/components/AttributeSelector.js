@@ -50,7 +50,6 @@ class AttributeSelector extends React.Component {
     for (let key in this.state.checked) {
       attributeObject.push(
         <AttributeRow
-          key={key}
           name={key}
           checked={this.state.checked[key]}
           onChangeHandler={this.onChangeHandler}
