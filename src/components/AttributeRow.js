@@ -15,7 +15,7 @@ function AttributeRow(props) {
       </div>
       <div
         className="six columns attribute-result"
-        style={props.checked ? {} : {visibility:'hidden'}}
+        style={props.checked ? {} : {opacity:'0'}}
       >{props.result}</div>
     </div>
   )
