@@ -2,7 +2,7 @@ import React from 'react';
 
 function AttributeRow(props) {
   return (
-    <div className="row">
+    <li className="row" key={props.name}>
       <div className="six columns">
         <input
           type="checkbox"
@@ -14,7 +14,7 @@ function AttributeRow(props) {
         <label htmlFor={props.name}>{props.name}</label>
       </div>
       <div className="six columns attribute-result">{props.checked ? props.result : ''}</div>
-    </div>
+    </li>
   )
 }
 

@@ -50,7 +50,6 @@ class AttributeSelector extends React.Component {
     for (let key in this.state.checked) {
       attributeObject.push(
         <AttributeRow
-          key={Math.random()}
           name={key}
           checked={this.state.checked[key]}
           onChangeHandler={this.onChangeHandler}
@@ -62,9 +61,9 @@ class AttributeSelector extends React.Component {
 
     return (
       <div>
-        <div className="attribute-list">
+        <ul className="attribute-list">
           {attributeObject}
-        </div>
+        </ul>
         <ActionBar onChoice={this.setChoices} {...this.props} />
       </div>
     )

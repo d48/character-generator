@@ -2,10 +2,6 @@
   margin-top: 20px;
 }
 
-label {
-  display: inline-block;
-  margin-left: 5px;
-}
 
 .attribute-list {
   margin: 20px 0;
@@ -13,6 +9,17 @@ label {
 
 .column, .columns {
   width: 100%
+}
+
+
+label {
+  display: inline-block;
+  margin-left: 5px;
+}
+
+ul li {
+  list-style-type: none;
+  margin: 0;
 }
 
 /* for mobile widths */
