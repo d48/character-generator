@@ -4,7 +4,7 @@ import AttributeSelectorHeader from './AttributeSelectorHeader';
 
 function CharacterGenerator(props) {
   return (
-    <div class="container">
+    <div className="container">
       <CharacterGeneratorHeader
         title={props.settings.title}
         description={props.settings.description}
