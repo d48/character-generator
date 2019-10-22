@@ -25,7 +25,7 @@ class AttributeSelectorHeader extends React.Component {
 
   render() {
     return (
-      <div class="row">
+      <div>
         <input type="checkbox" id="selectall" name="selectall"
           checked={this.state.selectall}
           onChange={this.onSelectAllChange}

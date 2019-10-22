@@ -61,7 +61,7 @@ class AttributeSelector extends React.Component {
     }
 
     return (
-      <div class="row">
+      <div>
         <div className="attribute-list">
           {attributeObject}
         </div>
