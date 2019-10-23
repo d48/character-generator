@@ -11,7 +11,7 @@ const SETTINGS = {
 };
 
 const ATTRIBUTES = [
-  { name: 'Hair style', description: 'Spikey, long, short, etc', values: ['spikey', 'long', 'short', 'bob', 'bun', 'man-bun'] },
+  { name: 'Hair style', description: 'Spikey, long, short, etc', values: ['Spikey', 'Long', 'Short', 'Bob', 'Bun', 'Man-bun'] },
   { name: 'Weight', description: '', values: [60, 80, 100, 120, 140, 160, 180] },
   { name: 'Height', description: 'From 3\' and up', values: [36, 48, 60, 72, 88, 102, 123] },
   { name: 'Eye color', description: 'Hazel, dark blue, glowing, etc', values: ['Hazel', 'Dark blue', 'Black', 'Green'] },
