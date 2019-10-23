@@ -39,7 +39,8 @@ class AttributeSelector extends React.Component {
         checked: {
           ...state.checked,
           [name]: value
-        }
+        },
+        values: { ...state.values }
       }
     });
   }
