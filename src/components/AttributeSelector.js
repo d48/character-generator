@@ -25,8 +25,16 @@ class AttributeSelector extends React.Component {
   }
 
   setChecked(value) {
-    this.setState({
-      checked: { ...this.state.checked, ...groupByAndSetValue(this.props.attributes, 'name', value)}
+    this.setState((prevState) => {
+      let updated = { ...prevState.checked }
+
+      for (let item in updated) {
+        updated[item] = value;
+      }
+
+      return {
+        checked: updated
+      };
     });
   }
 
