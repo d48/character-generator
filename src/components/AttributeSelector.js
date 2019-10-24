@@ -33,11 +33,13 @@ class AttributeSelector extends React.Component {
   onChangeHandler(event) {
     const value = event.target.checked;
     const name = event.target.name;
-    const updated = {...this.state.checked, [name]: value};
 
-    this.setState((state) => {
+    this.setState((prevState) => {
+      const updated = { ...prevState.checked };
+      updated[name] = value;
+
       return {
-        checked: { ...updated }
+        checked: updated
       }
     });
   }
