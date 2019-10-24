@@ -24,12 +24,11 @@ npm run start
 
 # Todo
 
-* Add more attributes
+* Have <AttributeSelector /> handle it's own state
 
 # Roadmap
 
 * Dynamically create 2 columns of attributes
-* Create mobile view
 * Separate attributes in their own json. Later move to persistent store so can push updates separetely.
 * After auto-generating a character, save to a persistent store at a unique URL. This can be shared or revisited
 * Create login via email. Can see saved characters
