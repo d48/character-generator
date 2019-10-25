@@ -9,6 +9,11 @@ class AttributeSelector extends React.Component {
 
     this.values = groupByAndSetValue(this.props.attributes, 'name', '');
     this.checked = groupByAndSetValue(this.props.attributes, 'name', true);
+    this.formatters = this.props.attributes.filter(item => item.format)
+      .reduce((acc, currVal) => {
+        acc[currVal.name] = currVal.format;
+        return acc;
+      }, {});
 
     this.state = {
       checked: { ...this.checked },
@@ -54,8 +59,11 @@ class AttributeSelector extends React.Component {
 
   render() {
     const attributeObject = [];
+    let format;
 
     for (let key in this.state.checked) {
+      format = (typeof this.formatters[key]) !== 'undefined' && this.formatters[key];
+
       attributeObject.push(
         <AttributeRow
           key={key}
@@ -63,6 +71,7 @@ class AttributeSelector extends React.Component {
           checked={this.state.checked[key]}
           onChangeHandler={this.onChangeHandler}
           result={this.state.values[key]}
+          format={format}
           class="row"
          />
       );

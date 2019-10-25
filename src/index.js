@@ -12,8 +12,8 @@ const SETTINGS = {
 
 const ATTRIBUTES = [
   { name: 'Hair style', description: 'Spikey, long, short, etc', values: ['Spikey', 'Long', 'Short', 'Bob', 'Bun', 'Man-bun'] },
-  { name: 'Weight', description: '', values: [60, 80, 100, 120, 140, 160, 180] },
-  { name: 'Height', description: 'From 3\' and up', values: [36, 48, 60, 72, 88, 102, 123] },
+  { name: 'Weight', description: '', values: [60, 80, 100, 120, 140, 160, 180], format: (val) => { return `${val} lbs`; }},
+  { name: 'Height', description: '', values: [36, 48, 60, 72, 88, 102, 123], format: (val) => { return `${Math.floor(val/12)}' ${val%12}"`; } },
   { name: 'Eye color', description: 'Hazel, dark blue, glowing, etc', values: ['Hazel', 'Dark blue', 'Black', 'Green'] },
   { name: 'Skin color', description: 'Tan, spotted, albino, etc', values: ['Tan', 'Golden', 'Black', 'White', 'Brown', 'Orange', 'Yellow'] },
   { name: 'Body build', description: '', values: ['Frail', 'Fat', 'Thick', 'Boney', 'Medium', 'Small', 'Large', 'Skinny'] },

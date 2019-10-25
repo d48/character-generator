@@ -13,7 +13,9 @@ function AttributeRow(props) {
         />
         <label htmlFor={props.name}>{props.name}</label>
       </div>
-      <div className="six columns attribute-result">{props.checked ? props.result : ''}</div>
+
+      {/* conditionally apply formatting to result if available */}
+      <div className="six columns attribute-result">{props.checked ? (props.format && props.result ? props.format(props.result) : props.result) : ''}</div>
     </li>
   )
 }
