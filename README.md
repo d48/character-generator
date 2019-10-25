@@ -24,7 +24,7 @@ npm run start
 
 # Todo
 
-* Have <AttributeSelector /> handle it's own state
+* Add tests and explore cypress for e2e/functional tests
 
 # Roadmap
 
