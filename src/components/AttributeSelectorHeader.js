@@ -1,40 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import AttributeSelector from './AttributeSelector';
 
-class AttributeSelectorHeader extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      selectall: true
-    }
+const AttributeSelectorHeader = (props) => {
+  const [selectall, setSelectAll] = useState(true);
+  const attributeSelectorRef = React.createRef();
 
-    this.props = props;
-    this.onSelectAllChange = this.onSelectAllChange.bind(this);
-    this.attributeSelectorRef = React.createRef();
-  }
-
-  onSelectAllChange(event) {
+  const onSelectAllChange = (event) => {
     const value = event.target.checked;
+    setSelectAll(value);
+    attributeSelectorRef.current.setChecked(value);
+  };
 
-    this.setState({
-      [event.target.name]: value
-    });
-
-    this.attributeSelectorRef.current.setChecked(value);
-  }
-
-  render() {
-    return (
-      <div>
-        <input type="checkbox" id="selectall" name="selectall"
-          checked={this.state.selectall}
-          onChange={this.onSelectAllChange}
-        />
-        <label htmlFor="selectall">Select All</label>
-        <AttributeSelector {...this.props} ref={this.attributeSelectorRef} />
-      </div>
-    )
-  }
+  return (
+    <div>
+      <input type="checkbox" id="selectall" name="selectall"
+        checked={selectall}
+        onChange={onSelectAllChange}
+      />
+      <label htmlFor="selectall">Select All</label>
+      <AttributeSelector {...props} ref={attributeSelectorRef} />
+    </div>
+  );
 }
 
 export default AttributeSelectorHeader;
