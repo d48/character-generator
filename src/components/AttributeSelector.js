@@ -1,7 +1,7 @@
 import React from 'react';
 import ActionBar from './ActionBar';
 import AttributeRow from './AttributeRow';
-import { groupByAndSetValue } from '../utils/helpers';
+import { getRandomIndex, groupByAndSetValue } from '../utils/helpers';
 
 class AttributeSelector extends React.Component {
   constructor(props) {
@@ -20,13 +20,24 @@ class AttributeSelector extends React.Component {
       values: { ...this.values }
     };
 
-    this.setChoices = (choices) => {
-      this.setState({
-        values: { ...this.state.values, ...choices }
-      });
-    }
-
     this.onChangeHandler = this.onChangeHandler.bind(this);
+    this.onClickHandler = this.onClickHandler.bind(this);
+  }
+
+  onClickHandler() {
+    const choices = {};
+
+    this.props.attributes.forEach(attribute => {
+      choices[attribute.name] = attribute.values[getRandomIndex(attribute.values.length)];
+    });
+
+    this.setState((prevState) => {
+      const updated = { ...prevState.values, ...choices };
+
+      return {
+        values: { ...updated }
+      }
+    });
   }
 
   setChecked(value) {
@@ -82,7 +93,7 @@ class AttributeSelector extends React.Component {
         <ul className="attribute-list">
           {attributeObject}
         </ul>
-        <ActionBar onChoice={this.setChoices} {...this.props} />
+        <ActionBar onClickHandler={this.onClickHandler} {...this.props} />
       </div>
     )
   }
