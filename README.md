@@ -28,6 +28,8 @@ npm run start
 
 # Roadmap
 
+* Add Redux
+* Convert to TypeScript
 * Dynamically create 2 columns of attributes
 * Separate attributes in their own json. Later move to persistent store so can push updates separetely.
 * After auto-generating a character, save to a persistent store at a unique URL. This can be shared or revisited
