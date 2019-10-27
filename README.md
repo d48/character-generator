@@ -22,6 +22,15 @@ npm run start
 1. Open webpage on localhost:3000
 2. Click on "Generate Character" button to see output
 
+# Tests
+
+```
+yarn test
+
+// to run coverage locally
+yarn test --watchAll --coverage
+```
+
 # Todo
 
 * Add tests and explore cypress for e2e/functional tests
