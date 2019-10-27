@@ -15,8 +15,8 @@ App will be setup to handle attribute configuration for random generation of any
 # Usage
 
 ```
-npm install
-npm run start
+yarn install
+yarn start
 ```
 
 1. Open webpage on localhost:3000
