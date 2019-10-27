@@ -3,18 +3,20 @@ import CharacterGeneratorHeader from './CharacterGeneratorHeader';
 import AttributeSelectorHeader from './AttributeSelectorHeader';
 
 function CharacterGenerator(props) {
+  const { attributes, settings } = props;
+
   return (
     <div className="container">
       <CharacterGeneratorHeader
-        title={props.settings.title}
-        description={props.settings.description}
+        title={settings.title}
+        description={settings.description}
       />
       <AttributeSelectorHeader
-        buttonLabel={props.settings.buttonLabel}
-        attributes={props.attributes}
+        buttonLabel={settings.buttonLabel}
+        attributes={attributes}
       />
     </div>
-  )
+  );
 }
 
 export default CharacterGenerator;
