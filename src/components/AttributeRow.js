@@ -1,6 +1,6 @@
 import React from 'react';
 
-function AttributeRow(props) {
+const AttributeRow = (props) => {
   return (
     <li className="row" key={props.name}>
       <div className="six columns">
@@ -17,7 +17,7 @@ function AttributeRow(props) {
       {/* conditionally apply formatting to result if available */}
       <div className="six columns attribute-result">{props.checked ? (props.format && props.result ? props.format(props.result) : props.result) : ''}</div>
     </li>
-  )
-}
+  );
+};
 
 export default AttributeRow;

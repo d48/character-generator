@@ -1,6 +1,6 @@
 import React from 'react';
 
-function ActionBar(props) {
+const ActionBar = (props) => {
   const { buttonLabel, onClickHandler } = { ...props };
 
   return (
@@ -10,6 +10,6 @@ function ActionBar(props) {
       </button>
     </div>
   );
-}
+};
 
 export default ActionBar;
