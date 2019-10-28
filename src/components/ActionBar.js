@@ -1,21 +1,15 @@
 import React from 'react';
 
-class ActionBar extends React.Component {
-  constructor(props) {
-    super(props);
+function ActionBar(props) {
+  const { buttonLabel, onClickHandler } = { ...props };
 
-    this.buttonLabel = this.props.buttonLabel;
-  }
-
-  render() {
-    return (
-      <div>
-        <button id="btn-generate" onClick={this.props.onClickHandler} className="button-primary">
-          {this.buttonLabel}
-        </button>
-      </div>
-    )
-  }
+  return (
+    <div>
+      <button id="btn-generate" onClick={onClickHandler} className="button-primary">
+        {buttonLabel}
+      </button>
+    </div>
+  );
 }
 
 export default ActionBar;
