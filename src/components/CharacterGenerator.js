@@ -2,7 +2,7 @@ import React from 'react';
 import CharacterGeneratorHeader from './CharacterGeneratorHeader';
 import AttributeSelectorHeader from './AttributeSelectorHeader';
 
-function CharacterGenerator(props) {
+const CharacterGenerator = (props) => {
   const { attributes, settings } = props;
 
   return (
