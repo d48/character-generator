@@ -37,6 +37,7 @@ yarn test --watchAll --coverage
 
 # Roadmap
 
+* Set up changelog and automatic versioning: https://github.com/semantic-release/semantic-release
 * Add Redux
 * Convert to TypeScript
 * Dynamically create 2 columns of attributes
