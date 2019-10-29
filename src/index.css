@@ -22,6 +22,10 @@ ul li {
   margin: 0;
 }
 
+li.row:hover {
+  background-color: beige;
+}
+
 /* for mobile widths */
 @media (min-width: 400px) {
   .column, .columns {
