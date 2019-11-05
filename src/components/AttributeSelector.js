@@ -1,18 +1,37 @@
 import React, { useState } from 'react';
 import ActionBar from './ActionBar';
 import AttributeRow from './AttributeRow';
+import AttributeSelectorHeader from './AttributeSelectorHeader';
 import { getRandomIndex, groupByAndSetValue } from '../utils/helpers';
 
 const AttributeSelector = (props) => {
-
-  const { attributes, selectall } = { ...props };
+  const { attributes } = { ...props };
+  const [selectall, setSelectall] = useState(true);
   const [values, setValues] = useState(groupByAndSetValue(attributes, 'name', ''));
   const [checked, setChecked] = useState(groupByAndSetValue(attributes, 'name', true));
-  const formatters = attributes.filter(item => item.format)
+  const formatters = attributes
+    .filter(item => item.format)
     .reduce((acc, currVal) => {
       acc[currVal.name] = currVal.format;
       return acc;
     }, {});
+
+  // For select all
+  const onClickSelectAllHandler = (event) => {
+    const value = event.target.checked;
+    setChecked(groupByAndSetValue(attributes, 'name', value));
+    setSelectall(value);
+  }
+
+  // For row checkbox
+  const onChangeHandler = (event) => {
+    const { name, checked: value } = event.target;
+
+    setChecked({
+      ...checked,
+      [name]: value
+    });
+  };
 
   // For button
   const onClickHandler = () => {
@@ -25,16 +44,8 @@ const AttributeSelector = (props) => {
     setValues({...choices});
   };
 
-  // For row checkbox
-  const onChangeHandler = (event) => {
-    const { name, checked: value } = event.target;
 
-    setChecked({
-      ...checked,
-      [name]: value
-    });
-  };
-
+  // Component setup
   const attributeObject = [];
 
   for (let key in checked) {
@@ -55,6 +66,10 @@ const AttributeSelector = (props) => {
 
   return (
     <div>
+      <AttributeSelectorHeader
+        selectall={selectall}
+        onClickSelectAllHandler={onClickSelectAllHandler}
+      />
       <ul className="attribute-list">
       {attributeObject}
       </ul>
@@ -63,4 +78,4 @@ const AttributeSelector = (props) => {
   )
 };
 
-export { AttributeSelector };
+export default AttributeSelector;

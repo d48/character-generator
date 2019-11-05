@@ -1,6 +1,6 @@
 import React from 'react';
 import CharacterGeneratorHeader from './CharacterGeneratorHeader';
-import AttributeSelectorHeader from './AttributeSelectorHeader';
+import AttributeSelector from './AttributeSelector';
 
 const CharacterGenerator = (props) => {
   const { attributes, settings } = props;
@@ -11,7 +11,7 @@ const CharacterGenerator = (props) => {
         title={settings.title}
         description={settings.description}
       />
-      <AttributeSelectorHeader
+      <AttributeSelector
         buttonLabel={settings.buttonLabel}
         attributes={attributes}
       />

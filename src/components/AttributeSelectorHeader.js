@@ -1,22 +1,15 @@
-import React, { useState } from 'react';
-import { AttributeSelector } from './AttributeSelector';
+import React from 'react';
 
 const AttributeSelectorHeader = (props) => {
-  const [selectall, setSelectAll] = useState(true);
-
-  const onSelectAllChange = (event) => {
-    const value = event.target.checked;
-    setSelectAll(value);
-  };
+  const { selectall, onClickSelectAllHandler } = { ...props };
 
   return (
     <div>
       <input type="checkbox" id="selectall" name="selectall"
         checked={selectall}
-        onChange={onSelectAllChange}
+        onChange={onClickSelectAllHandler}
       />
       <label htmlFor="selectall">Select All</label>
-      <AttributeSelector {...props} selectall={selectall} />
     </div>
   );
 }
