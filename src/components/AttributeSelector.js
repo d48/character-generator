@@ -25,12 +25,13 @@ const AttributeSelector = (props) => {
 
   // For row checkbox
   const onChangeHandler = (event) => {
-    const { name, checked: value } = event.target;
+    const name = event.target.name;
+    const value= event.target.checked;
 
-    setChecked({
-      ...checked,
-      [name]: value
-    });
+    const updated = { ...checked }
+    updated[name] = value;
+
+    setChecked(updated);
   };
 
   // For button
