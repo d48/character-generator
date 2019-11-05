@@ -35,15 +35,16 @@
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^4.2.0",
-    "@testing-library/react": "^9.3.0"
+    "@testing-library/react": "^9.3.0",
+    "fakerator": "^0.3.0"
   },
   "jest": {
-    "collectCoverageFrom": [ 
-        "src/components/**/*.{js,jsx}",
-        "src/utils/**/*.{js,jsx}"
+    "collectCoverageFrom": [
+      "src/components/**/*.{js,jsx}",
+      "src/utils/**/*.{js,jsx}"
     ],
     "coveragePathIgnorePatterns": [
-        "test-utils.js"
+      "test-utils.js"
     ]
   }
 }
