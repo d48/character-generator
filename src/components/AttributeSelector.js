@@ -3,8 +3,10 @@ import ActionBar from './ActionBar';
 import AttributeRow from './AttributeRow';
 import AttributeSelectorHeader from './AttributeSelectorHeader';
 import { getRandomIndex, groupByAndSetValue } from '../utils/helpers';
+import Fakerator from 'fakerator';
 
 const AttributeSelector = (props) => {
+  const fakerator = Fakerator();
   const { attributes } = { ...props };
   const [selectall, setSelectall] = useState(true);
   const [values, setValues] = useState(groupByAndSetValue(attributes, 'name', ''));
@@ -39,7 +41,15 @@ const AttributeSelector = (props) => {
     const choices = {};
 
     attributes.forEach(attribute => {
-      choices[attribute.name] = attribute.values[getRandomIndex(attribute.values.length)];
+      if (attribute.name.toLowerCase() === 'name') {
+        if (typeof choices['Gender'] != 'undefined') {
+          choices[attribute.name] = (choices['Gender'] === 'Male') ? fakerator.names.nameM() : fakerator.names.nameF();
+        } else {
+          choices[attribute.name] = fakerator.names.name();
+        }
+      } else {
+        choices[attribute.name] = attribute.values[getRandomIndex(attribute.values.length)];
+      }
     });
 
     setValues({...choices});
