@@ -7,6 +7,8 @@ Site can be viewed here: https://chargen.netlify.com/
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/238cac10-cac7-4a54-bd15-91f093b280af/deploy-status)](https://app.netlify.com/sites/chargen/deploys)
 
+![coverage badge](./coverage/badge.svg)
+
 ![screenshot](https://content.screencast.com/users/Ryan.Regalado/folders/Default/media/559aff0a-f66e-47b1-92c1-558eb01fe46c/IMG_1283.PNG)
 
 ## Note
@@ -28,7 +30,7 @@ yarn start
 yarn test
 
 // to run coverage locally
-yarn test --watchAll --coverage
+yarn test:coverage
 ```
 
 # Todo
@@ -38,6 +40,7 @@ yarn test --watchAll --coverage
 # Roadmap
 
 * Set up changelog and automatic versioning: https://github.com/semantic-release/semantic-release
+* Make repo have 100% code coverage
 * Add Redux
 * Convert to TypeScript
 * Dynamically create 2 columns of attributes

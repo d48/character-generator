@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "make-coverage-badge": "^1.2.0",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-scripts": "3.2.0"
@@ -16,7 +17,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "CI=true react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "test:coverage": "yarn test --coverage",
+    "test:badge": "yarn test:coverage && make-coverage-badge"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -45,6 +48,9 @@
     ],
     "coveragePathIgnorePatterns": [
       "test-utils.js"
+    ],
+    "coverageReporters": [
+      "json-summary"
     ]
   }
 }
