@@ -30,10 +30,12 @@ const AttributeSelector = (props) => {
     const name = event.target.name;
     const value= event.target.checked;
 
-    const updated = { ...checked }
-    updated[name] = value;
-
-    setChecked(updated);
+    setChecked((checked) => {
+      return {
+        ...checked,
+        [name]: value
+      }
+    });
   };
 
   // For button
