@@ -35,12 +35,11 @@ yarn test:coverage
 
 # Todo
 
-* Add tests and explore cypress for e2e/functional tests
+* Add tests so there is 100% coverage
 
 # Roadmap
 
 * Set up changelog and automatic versioning: https://github.com/semantic-release/semantic-release
-* Make repo have 100% code coverage
 * Add Redux
 * Convert to TypeScript
 * Dynamically create 2 columns of attributes

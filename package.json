@@ -14,6 +14,7 @@
     "set-value": "^2.0.1"
   },
   "scripts": {
+    "commit": "git-cz",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "CI=true react-scripts test",
@@ -39,6 +40,8 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^4.2.0",
     "@testing-library/react": "^9.3.0",
+    "commitizen": "^4.0.3",
+    "cz-conventional-changelog": "^3.0.2",
     "fakerator": "^0.3.0"
   },
   "jest": {
@@ -52,5 +55,10 @@
     "coverageReporters": [
       "json-summary"
     ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
