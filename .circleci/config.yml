@@ -63,7 +63,7 @@ jobs:
             command: sudo npm install -g --silent netlify-cli
         - run:
             name: Deploy to Netlify
-            command: netlify deploy --dir=./build --auth $NETLIFY_AUTH_TOKEN --site $NETLIFY_SITE_ID
+            command: netlify deploy --dir=./build --auth $NETLIFY_AUTH_TOKEN --site $NETLIFY_SITE_ID --prod
 
 workflows:
     version: 2
