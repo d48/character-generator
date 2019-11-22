@@ -50,9 +50,24 @@ jobs:
             paths:
                 - build
 
+    deploy:
+        executor: node
+        steps:
+        - checkout
+        - attach_workspace:
+            at: ./
+        - <<: *restore_cache
+        - <<: *install_dependencies
+        - run:
+            name: Install netlify-cli
+            command: sudo npm install -g --silent netlify-cli
+        - run:
+            name: Deploy to Netlify
+            command: netlify deploy --dir=./build
+
 workflows:
     version: 2
-    test_and_build:
+    test_and_build_and_deploy:
         jobs:
             - test:
                 filters:
@@ -61,6 +76,12 @@ workflows:
             - build:
                 requires:
                     - test
+                filters:
+                    branches:
+                        only: master
+            - deploy:
+                requires:
+                    - build
                 filters:
                     branches:
                         only: master
