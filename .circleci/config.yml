@@ -1,0 +1,9 @@
+version: 2.1
+jobs:
+    build:
+        docker:
+        - image: circle/node:latest
+        steps:
+        - checkout
+        - run: yarn test:badge
+        - run: yarn build
