@@ -26,6 +26,10 @@ li.row:hover {
   background-color: beige;
 }
 
+button.button-primary, button.button-primary:focus {
+  background-color: #186077;
+}
+
 /* for mobile widths */
 @media (min-width: 400px) {
   .column, .columns {
