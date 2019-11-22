@@ -11,5 +11,5 @@ test('Loads Character Generator Header with title and description', () => {
 
   // act / assert
   expect(container.querySelector('h1')).toHaveTextContent(title);
-  expect(container.querySelector('h4')).toHaveTextContent(description);
+  expect(container.querySelector('h2')).toHaveTextContent(description);
 });
