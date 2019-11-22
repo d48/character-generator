@@ -1,10 +1,66 @@
-version: 2.1
-jobs:
-    build:
+executors:
+    node:
         docker:
         - image: circleci/node:latest
+
+aliases:
+    restore_cache: &restore_cache
+        restore_cache:
+            name: Restore Package Cache
+            keys:
+            - yarn-cache-netlify-{{ checksum "yarn.lock" }}
+
+        install_dependencies: &install_dependencies
+            run:
+                name: Install dependencies
+                command: yarn install
+
+        save_cache: &save_cache
+            save_cache:
+                name: Save Package Cache
+                key: yarn-cache-netlify-{{ checksum "yarn.lock" }}
+                paths:
+                - ./node_modules
+
+version: 2.1
+
+jobs:
+    test:
+        executor: node
+        steps:
+            - checkout
+            - <<: *restore_cache
+            - <<: *install_dependencies
+            - <<: *save_cache
+            - run:
+                name: Run Tests
+                command: yarn test:badge
+
+    build:
+        executor: node
         steps:
         - checkout
-        - run: yarn install
-        - run: yarn test:badge
-        - run: yarn build
+        - <<: *restore_cache
+        - <<: *install_dependencies
+        - run:
+            name: Run Build
+            command: yarn build
+        - persist_to_workspace:
+            root: ./
+            paths:
+                - build
+
+workflows:
+    version: 2
+    test_and_build:
+        jobs:
+            - test:
+                filters:
+                    branches:
+                        only: master
+            - build:
+                requires:
+                    - build
+                filters:
+                    branches:
+                        only: master
