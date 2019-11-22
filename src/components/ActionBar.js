@@ -4,11 +4,9 @@ const ActionBar = (props) => {
   const { buttonLabel, onClickHandler } = { ...props };
 
   return (
-    <div>
-      <button id="btn-generate" onClick={onClickHandler} className="button-primary">
-        {buttonLabel}
-      </button>
-    </div>
+    <button id="btn-generate" onClick={onClickHandler} className="button-primary">
+      {buttonLabel}
+    </button>
   );
 };
 
