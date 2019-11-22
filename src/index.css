@@ -30,6 +30,10 @@ button.button-primary, button.button-primary:focus {
   background-color: #186077;
 }
 
+h2 {
+  font-size: 3rem;
+}
+
 /* for mobile widths */
 @media (min-width: 400px) {
   .column, .columns {
