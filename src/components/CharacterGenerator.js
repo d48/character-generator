@@ -6,7 +6,7 @@ const CharacterGenerator = (props) => {
   const { attributes, settings } = props;
 
   return (
-    <div className="container">
+    <section>
       <CharacterGeneratorHeader
         title={settings.title}
         description={settings.description}
@@ -15,7 +15,7 @@ const CharacterGenerator = (props) => {
         buttonLabel={settings.buttonLabel}
         attributes={attributes}
       />
-    </div>
+    </section>
   );
 }
 

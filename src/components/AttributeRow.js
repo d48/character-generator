@@ -3,7 +3,7 @@ import React from 'react';
 const AttributeRow = (props) => {
   return (
     <li className="row" key={props.name}>
-      <div className="six columns">
+      <section className="six columns">
         <input
           type="checkbox"
           id={props.name}
@@ -12,10 +12,10 @@ const AttributeRow = (props) => {
           onChange={props.onChangeHandler}
         />
         <label htmlFor={props.name}>{props.name}</label>
-      </div>
+      </section>
 
       {/* conditionally apply formatting to result if available */}
-      <div className="six columns attribute-result">{props.checked ? (props.format && props.result ? props.format(props.result) : props.result) : ''}</div>
+      <section className="six columns attribute-result">{props.checked ? (props.format && props.result ? props.format(props.result) : props.result) : ''}</section>
     </li>
   );
 };

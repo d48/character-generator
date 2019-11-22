@@ -77,7 +77,7 @@ const AttributeSelector = (props) => {
   }
 
   return (
-    <div>
+    <section>
       <AttributeSelectorHeader
         selectall={selectall}
         onClickSelectAllHandler={onClickSelectAllHandler}
@@ -86,7 +86,7 @@ const AttributeSelector = (props) => {
       {attributeObject}
       </ul>
       <ActionBar onClickHandler={onClickHandler} {...props} />
-    </div>
+    </section>
   )
 };
 
