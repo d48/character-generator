@@ -60,7 +60,7 @@ workflows:
                         only: master
             - build:
                 requires:
-                    - build
+                    - test
                 filters:
                     branches:
                         only: master
