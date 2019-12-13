@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import CharacterGenerator from './components/CharacterGenerator.js';
+import weightRandomizer from './plugins/weightRandomizer.js';
 import './index.css';
 
 // TODO: move to configuration.json
@@ -12,7 +13,7 @@ const SETTINGS = {
 
 const ATTRIBUTES = [
   { name: 'Hair style', description: 'Spikey, long, short, etc', values: ['Spikey', 'Long', 'Short', 'Bob', 'Bun', 'Man-bun'] },
-  { name: 'Weight', description: '', values: [60, 80, 100, 120, 140, 160, 180], format: (val) => { return `${val} lbs`; }},
+  { name: 'Weight', description: '', values: weightRandomizer, format: (val) => { return `${val} lbs`; }},
   { name: 'Height', description: '', values: [36, 48, 60, 72, 88, 102, 123], format: (val) => { return `${Math.floor(val/12)}' ${val%12}"`; } },
   { name: 'Eye color', description: 'Hazel, dark blue, glowing, etc', values: ['Hazel', 'Dark blue', 'Black', 'Green'] },
   { name: 'Skin color', description: 'Tan, spotted, albino, etc', values: ['Tan', 'Golden', 'Black', 'White', 'Brown', 'Orange', 'Yellow'] },

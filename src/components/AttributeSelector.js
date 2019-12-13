@@ -49,7 +49,13 @@ const AttributeSelector = (props) => {
           choices[attribute.name] = fakerator.names.name();
         }
       } else {
-        choices[attribute.name] = attribute.values[getRandomIndex(attribute.values.length)];
+
+        if (typeof attribute.values === 'function') {
+          choices[attribute.name] = attribute.values();
+        } else {
+          choices[attribute.name] = attribute.values[getRandomIndex(attribute.values.length)];
+        }
+
       }
     });
 
