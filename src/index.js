@@ -21,7 +21,7 @@ const ATTRIBUTES = [
   { name: 'Body build', description: '', values: ['Frail', 'Fat', 'Thick', 'Boney', 'Medium', 'Small', 'Large', 'Skinny'] },
   { name: 'Accessories', description: '', values: ['Necklace', 'Hat', 'Watch', 'Ring', 'Earring'] },
   { name: 'Facial expression', description: '', values: ['Pouting', 'Smiling', 'Ecstatic', 'Worried', 'Thinking', 'Scared', 'Calm', 'Delighted', 'Peaceful', 'Content', 'Angry', 'Frightened', 'Mad', 'Sad', 'Excited', 'Serious', 'Annoyed', 'Disgusted', 'Yelling'] },
-  { name: 'Action', description: '', values: ['Holding a sword', 'Turning to look behind', 'Smoking a cigarette', 'Sitting on a rock', 'Jumping off a building', 'Crawling', 'Holding a bow', 'Pick something up', 'Looking up at the sky', 'Hands in their pocket', 'Deep in thought', 'Carrying something heavy', 'Carefully holding an object', 'Drinking from a cup', 'Reading a book', 'Looking at their phone', 'Reading the newspaper'] },
+  { name: 'Action', description: '', values: ['Holding a sword', 'Turning to look behind', 'Smoking a cigarette', 'Sitting on a rock', 'Jumping off a building', 'Crawling', 'Holding a bow', 'Picking something up', 'Looking up at the sky', 'Hands in their pocket', 'Deep in thought', 'Carrying something heavy', 'Carefully holding an object', 'Drinking from a cup', 'Reading a book', 'Looking at their phone', 'Reading the newspaper'] },
   { name: 'Gender', description: '', values: ['Male', 'Female', 'Androgynous'] },
   { name: 'Name', description: '', values: ['Tiberius', 'Aliso', 'Harmony', 'Griggio', 'Eliana', 'Brarben', 'Hauminor'] }
 ];
