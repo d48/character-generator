@@ -1,9 +1,9 @@
 import React from 'react';
 import weightRandomizer from '../weightRandomizer';
 
-test('Randomizes a weight value with default between 30 and 400', () => {
+test('Randomizes a weight value with default between 30 and 500', () => {
   // arrange, act, assert
-  expect(weightRandomizer()).toBeLessThanOrEqual(400);
+  expect(weightRandomizer()).toBeLessThanOrEqual(500);
   expect(weightRandomizer()).toBeGreaterThanOrEqual(30);
 });
 
