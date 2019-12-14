@@ -1,6 +1,7 @@
 import React from 'react';
 
 const AttributeRow = (props) => {
+
   return (
     <li className="row" key={props.name}>
       <section className="six columns">
@@ -8,7 +9,7 @@ const AttributeRow = (props) => {
           type="checkbox"
           id={props.name}
           name={props.name}
-          checked={props.checked}
+          defaultChecked={props.checked}
           onChange={props.onChangeHandler}
         />
         <label htmlFor={props.name}>{props.name}</label>
