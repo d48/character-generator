@@ -5,8 +5,6 @@ Randomizes a character attribute list to be used for ideas in story or illustrat
 
 Site can be viewed here: https://chargen.netlify.com/
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/238cac10-cac7-4a54-bd15-91f093b280af/deploy-status)](https://app.netlify.com/sites/chargen/deploys)
-
 ![coverage badge](./coverage/badge.svg)
 
 ![screenshot](https://content.screencast.com/users/Ryan.Regalado/folders/Default/media/559aff0a-f66e-47b1-92c1-558eb01fe46c/IMG_1283.PNG)
