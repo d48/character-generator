@@ -53,7 +53,8 @@
       "test-utils.js"
     ],
     "coverageReporters": [
-      "json-summary"
+      "json-summary",
+      "text"
     ]
   },
   "config": {
