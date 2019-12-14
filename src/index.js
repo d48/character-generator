@@ -7,7 +7,7 @@ import './index.css';
 // TODO: move to configuration.json
 const SETTINGS = {
     title: 'Character Generator',
-    description: 'Select attributes that you would like to include in the generated character description.',
+    description: 'Select attributes to include for the character.',
     buttonLabel: 'Generate Character'
 };
 
