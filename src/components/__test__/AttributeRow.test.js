@@ -8,6 +8,7 @@ test('Can generate an attribute list row with label and input and click handler'
     onChangeHandler: () => {},
     format: () => {}
   };
+  jest.spyOn(obj, "onChangeHandler");
 
   let props = {
     name: 'boom',
@@ -20,14 +21,13 @@ test('Can generate an attribute list row with label and input and click handler'
 
 
   // assert
-  // todo: needs to spy on changehandler
   expect(container.querySelector('label')).toHaveTextContent(props.name);
-  expect(container.querySelector('input').checked).toEqual(true);
 
   // act
-  fireEvent.click(container.querySelector('input'));
+  const checkbox = container.querySelector('input');
+  fireEvent.click(checkbox);
 
   // assert
-  // todo: need to spy on onChangeHandler
-  expect(container.querySelector('input').checked).toEqual(false);
+  expect(obj.onChangeHandler).toHaveBeenCalled();
+  expect(checkbox.checked).toEqual(false);
 });
