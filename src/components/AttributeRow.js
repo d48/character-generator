@@ -9,7 +9,7 @@ const AttributeRow = (props) => {
           type="checkbox"
           id={props.name}
           name={props.name}
-          defaultChecked={props.checked}
+          checked={props.checked}
           onChange={props.onChangeHandler}
         />
         <label htmlFor={props.name}>{props.name}</label>
