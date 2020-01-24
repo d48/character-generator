@@ -29,5 +29,4 @@ test('Can generate an attribute list row with label and input and click handler'
 
   // assert
   expect(obj.onChangeHandler).toHaveBeenCalled();
-  expect(checkbox.checked).toEqual(false);
 });
