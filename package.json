@@ -6,7 +6,7 @@
     "make-coverage-badge": "^1.2.0",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
-    "react-scripts": "3.2.0"
+    "react-scripts": "^3.4.3"
   },
   "resolutions": {
     "lodash.template": "^4.5.0",
