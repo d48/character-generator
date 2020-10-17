@@ -1,30 +1,23 @@
-import { getRandomIndex } from '../utils/helpers';
 import Fakerator from 'fakerator';
+import { getRandomIndex } from '../utils/helpers';
 
 const getAttributeChoice = (attributes) => {
   const fakerator = Fakerator();
   const choices = {};
 
-  attributes.forEach(attribute => {
-    if (attribute.name.toLowerCase() === 'name') {
-      // select name
-      if (typeof choices['Gender'] != 'undefined') {
-        choices[attribute.name] = (choices['Gender'] === 'Male') ? fakerator.names.nameM() : fakerator.names.nameF();
-      } else {
-        choices[attribute.name] = fakerator.names.name();
-      }
-    } else {
+  attributes.forEach((attribute) => {
+    let {values, name} = attribute;
 
-      // select value
-      if (typeof attribute.values === 'function') {
-        choices[attribute.name] = attribute.values();
-      } else {
-        choices[attribute.name] = attribute.values[getRandomIndex(attribute.values.length)];
-      }
+    if (typeof values === 'function') {
+      choices[name] = values();
+    } else {
+      choices[name] = values[getRandomIndex(values.length)];
     }
   });
 
+  choices['Name'] = choices['Gender'] === 'Male' ? fakerator.names.nameM() : fakerator.names.nameF()
+
   return choices;
-}
+};
 
 export default getAttributeChoice;
