@@ -43,7 +43,6 @@ test('Can get random choice with name based on gender', () => {
   // assert
   expect(results['Name']).toBeDefined();
 
-
   // arrange
   attributes[2].values = ['Female']
 
@@ -52,6 +51,4 @@ test('Can get random choice with name based on gender', () => {
 
   // assert
   expect(results['Name']).toBeDefined();
-
-
 });
