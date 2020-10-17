@@ -1,22 +1,23 @@
 import React from 'react';
 
 const AttributeRow = (props) => {
+  const { name, checked, onChangeHandler, format, result } = props;
 
   return (
-    <li className="row" key={props.name}>
+    <li className="row" key={name}>
       <section className="six columns">
         <input
           type="checkbox"
-          id={props.name}
-          name={props.name}
-          checked={props.checked}
-          onChange={props.onChangeHandler}
+          id={name}
+          name={name}
+          checked={checked}
+          onChange={onChangeHandler}
         />
-        <label htmlFor={props.name}>{props.name}</label>
+        <label htmlFor={name}>{name}</label>
       </section>
 
       {/* conditionally apply formatting to result if available */}
-      <section className="six columns attribute-result">{props.checked ? (props.format && props.result ? props.format(props.result) : props.result) : ''}</section>
+      <section className="six columns attribute-result">{checked ? (format && result ? format(result) : result) : ''}</section>
     </li>
   );
 };
