@@ -1,4 +1,3 @@
-import React from 'react';
 import weightRandomizer from '../weightRandomizer';
 
 test('Randomizes a weight value with default between 30 and 500', () => {

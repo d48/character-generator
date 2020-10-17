@@ -1,4 +1,3 @@
-import React from 'react';
 import heightConversion from '../heightConversion';
 
 test('Outputs string for height with single and double quotes for feet and inches respectiely', () => {

@@ -1,4 +1,3 @@
-import React from 'react';
 import poundConversion from '../poundConversion';
 
 test('Outputs string with "lbs" appended', () => {
