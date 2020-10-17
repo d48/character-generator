@@ -2,11 +2,10 @@ import React, { useState } from 'react';
 import ActionBar from './ActionBar';
 import AttributeRow from './AttributeRow';
 import AttributeSelectorHeader from './AttributeSelectorHeader';
-import { getRandomIndex, groupByAndSetValue } from '../utils/helpers';
-import Fakerator from 'fakerator';
+import { groupByAndSetValue } from '../utils/helpers';
+import getAttributeChoice from './AttributeChoice';
 
 const AttributeSelector = (props) => {
-  const fakerator = Fakerator();
   const { attributes } = { ...props };
   const [selectall, setSelectall] = useState(true);
   const [values, setValues] = useState(groupByAndSetValue(attributes, 'name', ''));
@@ -39,29 +38,9 @@ const AttributeSelector = (props) => {
 
   // For button
   const onClickHandler = () => {
-    const choices = {};
-
-    attributes.forEach(attribute => {
-      if (attribute.name.toLowerCase() === 'name') {
-        if (typeof choices['Gender'] != 'undefined') {
-          choices[attribute.name] = (choices['Gender'] === 'Male') ? fakerator.names.nameM() : fakerator.names.nameF();
-        } else {
-          choices[attribute.name] = fakerator.names.name();
-        }
-      } else {
-
-        if (typeof attribute.values === 'function') {
-          choices[attribute.name] = attribute.values();
-        } else {
-          choices[attribute.name] = attribute.values[getRandomIndex(attribute.values.length)];
-        }
-
-      }
-    });
-
-    setValues({...choices});
+      const choices = getAttributeChoice(attributes)
+      setValues({...choices});
   };
-
 
   // Component setup
   const attributeObject = [];
