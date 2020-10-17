@@ -42,7 +42,8 @@
     "@testing-library/react": "^9.3.0",
     "commitizen": "^4.0.3",
     "cz-conventional-changelog": "^3.0.2",
-    "fakerator": "^0.3.0"
+    "fakerator": "^0.3.0",
+    "eslint": "^6.6.0"
   },
   "jest": {
     "collectCoverageFrom": [
