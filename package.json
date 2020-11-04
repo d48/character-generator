@@ -1,6 +1,6 @@
 {
   "name": "character-generator",
-  "version": "0.1.0",
+  "version": "0.0.0-development",
   "private": true,
   "dependencies": {
     "make-coverage-badge": "^1.2.0",
@@ -21,7 +21,8 @@
     "test": "CI=true react-scripts test",
     "eject": "react-scripts eject",
     "test:coverage": "yarn test --coverage",
-    "test:badge": "yarn test:coverage && make-coverage-badge"
+    "test:badge": "yarn test:coverage && make-coverage-badge",
+    "semantic-release": "semantic-release"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -39,12 +40,15 @@
     ]
   },
   "devDependencies": {
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/git": "^9.0.0",
     "@testing-library/jest-dom": "^4.2.0",
     "@testing-library/react": "^9.3.0",
     "commitizen": "^4.0.3",
     "cz-conventional-changelog": "^3.0.2",
+    "eslint": "^6.6.0",
     "fakerator": "^0.3.0",
-    "eslint": "^6.6.0"
+    "semantic-release": "^17.2.2"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -64,5 +68,9 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/d48/character-generator.git"
   }
 }
