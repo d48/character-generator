@@ -11,7 +11,7 @@
     "react-dom": "^16.10.2",
     "react-scripts": "^3.4.3"
   },
-   "husky": {
+  "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
@@ -29,7 +29,11 @@
     "test": "CI=true react-scripts test",
     "eject": "react-scripts eject",
     "test:coverage": "yarn test --coverage",
-    "test:badge": "yarn test:coverage && make-coverage-badge"
+    "test:badge": "yarn test:coverage && make-coverage-badge",
+    "release": "standard-version",
+    "release:minor": "standard-version --release-as minor",
+    "release:patch": "standard-version --release-as patch",
+    "release:major": "standard-version --release-as major"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -52,7 +56,8 @@
     "commitizen": "^4.0.3",
     "cz-conventional-changelog": "^3.0.2",
     "eslint": "^6.6.0",
-    "fakerator": "^0.3.0"
+    "fakerator": "^0.3.0",
+    "standard-version": "^9.0.0"
   },
   "jest": {
     "collectCoverageFrom": [
