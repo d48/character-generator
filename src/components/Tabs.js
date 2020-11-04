@@ -3,7 +3,7 @@ import React from "react";
 
 const Tabs = (props) => {
   const { children } = props;
-  return <>{children}</>;
+  return <section className="row">{children}</section>;
 };
 
 Tabs.propTypes = {
