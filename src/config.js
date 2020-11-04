@@ -23,4 +23,27 @@ const ATTRIBUTES = [
   { name: 'Name', description: '', values: ['Tiberius', 'Aliso', 'Harmony', 'Griggio', 'Eliana', 'Brarben', 'Hauminor'] }
 ];
 
-export { SETTINGS, ATTRIBUTES };
+const ANATOMY = [
+  'Tall',
+  'Tiny',
+  'Muscular',
+  'Short',
+  'Angular',
+  'Soft',
+  'Adolescent',
+  'Square',
+  'Strong',
+  'Slim',
+  'Elderly',
+  'Athletic',
+  'Curvy',
+  'Infant',
+  'Petite',
+  'Elongated',
+  'Average',
+  'Round',
+  'Middle-aged',
+  'Broad'
+];
+
+export { SETTINGS, ATTRIBUTES, ANATOMY };
