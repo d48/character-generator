@@ -7,7 +7,7 @@
     ],
     "plugins": ["prettier"],
     "rules": {
-      "prettier/prettier": "error"
+      "prettier/prettier": ["error",{"singleQuote": true, "parser": "flow"}]
     },
     "parser": "babel-eslint",
     "env": {

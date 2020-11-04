@@ -1,11 +1,12 @@
-import React from "react";
-import PropTypes from "prop-types";
-import CharacterGeneratorHeader from "./CharacterGeneratorHeader";
-import AttributeSelector from "./AttributeSelector";
-import Tabs from "./Tabs";
+import React from 'react';
+import PropTypes from 'prop-types';
+import CharacterGeneratorHeader from './CharacterGeneratorHeader';
+import AttributeSelector from './AttributeSelector';
+import IdeasGrid from './IdeasGrid';
+import { Tabs, Tab } from './Tabs';
 
 const CharacterGenerator = (props) => {
-  const { attributes, settings } = props;
+  const { attributes, settings, ideasGrid } = props;
 
   return (
     <section>
@@ -14,10 +15,15 @@ const CharacterGenerator = (props) => {
         description={settings.description}
       />
       <Tabs>
-        <AttributeSelector
-          buttonLabel={settings.buttonLabel}
-          attributes={attributes}
-        />
+        <Tab title="Default generator">
+          <AttributeSelector
+            buttonLabel={settings.buttonLabel}
+            attributes={attributes}
+          />
+        </Tab>
+        <Tab title="Ideas Grid">
+          <IdeasGrid attributes={ideasGrid} />
+        </Tab>
       </Tabs>
     </section>
   );
@@ -26,6 +32,7 @@ const CharacterGenerator = (props) => {
 CharacterGenerator.propTypes = {
   attributes: PropTypes.array,
   settings: PropTypes.object,
+  ideasGrid: PropTypes.array,
 };
 
 export default CharacterGenerator;

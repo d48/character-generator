@@ -1,13 +1,31 @@
-import PropTypes from "prop-types";
-import React from "react";
+import PropTypes from 'prop-types';
+import React from 'react';
 
 const Tabs = (props) => {
   const { children } = props;
-  return <section className="row">{children}</section>;
+  return children;
 };
 
 Tabs.propTypes = {
   children: PropTypes.node,
 };
 
-export default Tabs;
+const Tab = (props) => {
+  const { title, children } = props;
+  return (
+    <section>
+      <header>
+        <h2>{title}</h2>
+      </header>
+      <div>{children}</div>
+    </section>
+  );
+};
+
+Tab.displayName = 'Tab';
+Tab.propTypes = {
+  children: PropTypes.node,
+  title: PropTypes.string,
+};
+
+export { Tab, Tabs };
