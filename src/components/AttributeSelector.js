@@ -67,7 +67,7 @@ const AttributeSelector = (props) => {
         selectall={selectall}
         onClickSelectAllHandler={onClickSelectAllHandler}
       />
-      <ul className="attribute-list">
+      <ul className="attribute-list" data-testid="attribute-list">
       {attributeObject}
       </ul>
       <ActionBar onClickHandler={onClickHandler} {...props} />
