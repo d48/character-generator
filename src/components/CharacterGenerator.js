@@ -1,6 +1,8 @@
-import React from 'react';
-import CharacterGeneratorHeader from './CharacterGeneratorHeader';
-import AttributeSelector from './AttributeSelector';
+import React from "react";
+import PropTypes from "prop-types";
+import CharacterGeneratorHeader from "./CharacterGeneratorHeader";
+import AttributeSelector from "./AttributeSelector";
+import Tabs from "./Tabs";
 
 const CharacterGenerator = (props) => {
   const { attributes, settings } = props;
@@ -11,12 +13,19 @@ const CharacterGenerator = (props) => {
         title={settings.title}
         description={settings.description}
       />
-      <AttributeSelector
-        buttonLabel={settings.buttonLabel}
-        attributes={attributes}
-      />
+      <Tabs>
+        <AttributeSelector
+          buttonLabel={settings.buttonLabel}
+          attributes={attributes}
+        />
+      </Tabs>
     </section>
   );
-}
+};
+
+CharacterGenerator.propTypes = {
+  attributes: PropTypes.array,
+  settings: PropTypes.object,
+};
 
 export default CharacterGenerator;
