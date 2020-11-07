@@ -209,4 +209,27 @@ const STYLE = [
   'Simple',
 ];
 
-export { SETTINGS, ATTRIBUTES, ANATOMY, STYLE };
+const EMOTION = [
+  'Cheerful',
+  'Afraid',
+  'Eager',
+  'Sad',
+  'Shy',
+  'Annoyed',
+  'Curious',
+  'Worried',
+  'Overjoyed',
+  'Awkward',
+  'Relaxed',
+  'Disgusted',
+  'Tired',
+  'Surprised',
+  'Wistful',
+  'Bored',
+  'Kind',
+  'Awed',
+  'Excited',
+  'Furious',
+];
+
+export { SETTINGS, ATTRIBUTES, ANATOMY, STYLE, EMOTION };

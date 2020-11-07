@@ -2,10 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import CharacterGenerator from './components/CharacterGenerator.js';
 import './index.css';
-import { SETTINGS, ATTRIBUTES, ANATOMY, STYLE } from './config';
+import { SETTINGS, ATTRIBUTES, ANATOMY, STYLE, EMOTION } from './config';
 const ideasGrid = [
   { name: 'Anatomy', attributes: ANATOMY },
   { name: 'Style', attributes: STYLE },
+  { name: 'Emotion', attributes: EMOTION },
 ];
 
 ReactDOM.render(
