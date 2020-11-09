@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import CharacterGeneratorHeader from './CharacterGeneratorHeader';
 import AttributeSelector from './AttributeSelector';
 import IdeasGrid from './IdeasGrid';
 import { Tabs, Tab, TabHeader } from './Tabs';
+import styles from './Tabs.module.css';
+
+const ACTIVETAB = {
+  GENERATOR: 'generator',
+  IDEASGRID: 'ideasgrid',
+};
 
 const CharacterGenerator = (props) => {
   const { attributes, settings, ideasGrid } = props;
+  const [activeTab, setActiveTab] = useState(ACTIVETAB.GENERATOR);
 
   return (
     <section>
@@ -16,8 +23,20 @@ const CharacterGenerator = (props) => {
       />
       <Tabs>
         <TabHeader>
-          <h2>Default Generator</h2>
-          <h2>Ideas Grid</h2>
+          <h2
+            className={
+              activeTab === ACTIVETAB.GENERATOR ? styles.tabHeaderActive : ''
+            }
+          >
+            Default Generator
+          </h2>
+          <h2
+            className={
+              activeTab === ACTIVETAB.IDEASGRID ? styles.tabHeaderActive : ''
+            }
+          >
+            Ideas Grid
+          </h2>
         </TabHeader>
         <Tab title="Default generator">
           <AttributeSelector
