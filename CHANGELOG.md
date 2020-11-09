@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0](https://github.com/d48/character-generator/compare/v0.0.0-development...v1.0.0) (2020-11-09)
+
+
+### Features
+
+* **ideasgrid:** add emotion config ([d489282](https://github.com/d48/character-generator/commits/d4892824fd56e9df1c88d81e567cb10357c8bcec))
+* **ideasgrid:** add more ideas ([2a4ee71](https://github.com/d48/character-generator/commits/2a4ee71c32b8f88e3b96d0489847680b2638d234))
+* **ideasgrid:** set up tabs ([9fa5d1e](https://github.com/d48/character-generator/commits/9fa5d1eb03a5902cab733515a4b5a4729720b1ad))
+* **ideasgrid:** tab handling and styles ([83b3c2c](https://github.com/d48/character-generator/commits/83b3c2c0447034893c2826aad3f0df968ccf755f))
+* **tabs:** add css modules and tab setup ([4b27975](https://github.com/d48/character-generator/commits/4b279751c15e806bfa8ed4fefb7470eddda951ff))
+* **tabs:** children handling with props ([c16ecc9](https://github.com/d48/character-generator/commits/c16ecc997288026a16692af860a5719d78379578))
+* **tabs:** handle alignment and styling ([9ae3b8c](https://github.com/d48/character-generator/commits/9ae3b8cb7461b63958a69d3b9c640a71d7c73369))
+* **tabs:** setting active tab with click handler ([5ae5040](https://github.com/d48/character-generator/commits/5ae5040b8c6a432c14d921da9c6fd6df5a61eabc))
+
 ## [0.0.0](https://github.com/d48/character-generator/compare/v0.0.0-development...v0.0.0) (2020-11-09)
 
 
