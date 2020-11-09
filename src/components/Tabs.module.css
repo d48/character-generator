@@ -12,6 +12,16 @@
   padding: 30px;
   margin-bottom: 30px;
   z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.content section {
+  flex-basis: 100%;
+}
+
+.content div {
+  flex-basis: 25%;
 }
 
 .tabHeader {
