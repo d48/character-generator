@@ -21,7 +21,7 @@ const CharacterGenerator = (props) => {
         title={settings.title}
         description={settings.description}
       />
-      <Tabs>
+      <Tabs activeTab={activeTab} ACTIVETAB={ACTIVETAB}>
         <TabHeader>
           <h2
             className={
@@ -38,13 +38,13 @@ const CharacterGenerator = (props) => {
             Ideas Grid
           </h2>
         </TabHeader>
-        <Tab title="Default generator">
+        <Tab title="Default generator" id="generator">
           <AttributeSelector
             buttonLabel={settings.buttonLabel}
             attributes={attributes}
           />
         </Tab>
-        <Tab title="Ideas Grid">
+        <Tab title="Ideas Grid" id="ideasgrid">
           <IdeasGrid attributes={ideasGrid} />
         </Tab>
       </Tabs>

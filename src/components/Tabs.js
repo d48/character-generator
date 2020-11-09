@@ -3,18 +3,29 @@ import React from 'react';
 import styles from './Tabs.module.css';
 
 const Tabs = (props) => {
-  const { children } = props;
-  return <section className="tabs">{children}</section>;
+  const { children, activeTab, ACTIVETAB } = props;
+
+  const childrenWrapped = React.Children.map(children, (child, key) => {
+    return React.cloneElement(child, {
+      activeTab: activeTab,
+      ACTIVETAB: ACTIVETAB,
+    });
+  });
+
+  console.log('childrenwrapped', childrenWrapped);
+  return <section className="tabs">{childrenWrapped}</section>;
 };
 
 Tabs.propTypes = {
-  children: PropTypes.element,
+  children: PropTypes.node,
+  activeTab: PropTypes.string,
+  ACTIVETAB: PropTypes.object,
 };
 
 const Tab = (props) => {
-  const { children } = props;
+  const { children, activeTab, ACTIVETAB, id } = props;
   return (
-    <section>
+    <section className={activeTab === id ? styles.tabActive : styles.tab}>
       <div className={`${styles.content} ${styles.border}`}>{children}</div>
     </section>
   );
@@ -22,7 +33,10 @@ const Tab = (props) => {
 
 Tab.displayName = 'Tab';
 Tab.propTypes = {
-  children: PropTypes.element,
+  children: PropTypes.node,
+  activeTab: PropTypes.string,
+  ACTIVETAB: PropTypes.object,
+  id: PropTypes.string,
 };
 
 const TabHeader = (props) => {
@@ -42,6 +56,6 @@ const TabHeader = (props) => {
 
 TabHeader.displayName = 'TabHeader';
 TabHeader.propTypes = {
-  children: PropTypes.element,
+  children: PropTypes.node,
 };
 export { Tab, Tabs, TabHeader };
