@@ -1,0 +1,33 @@
+.titleContainer {
+  padding: 0;
+}
+
+.border {
+  border: 1px solid #dfdada;
+  border-radius: 4px;
+}
+
+.content {
+  background-color: #fff;
+  padding: 30px;
+  margin-bottom: 30px;
+  z-index: 10;
+}
+
+.tabHeaderContainer {
+  margin-left: 15px;
+}
+
+.tabHeader {
+  border-bottom: none;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  display: inline-block;
+  margin-right: -1px;
+}
+
+.tabHeader h2 {
+  margin: 0;
+  padding: 10px 15px;
+  font-size: 1.25em;
+}

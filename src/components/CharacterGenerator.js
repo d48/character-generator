@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import CharacterGeneratorHeader from './CharacterGeneratorHeader';
 import AttributeSelector from './AttributeSelector';
 import IdeasGrid from './IdeasGrid';
-import { Tabs, Tab } from './Tabs';
+import { Tabs, Tab, TabHeader } from './Tabs';
 
 const CharacterGenerator = (props) => {
   const { attributes, settings, ideasGrid } = props;
@@ -15,6 +15,10 @@ const CharacterGenerator = (props) => {
         description={settings.description}
       />
       <Tabs>
+        <TabHeader>
+          <h2>Default Generator</h2>
+          <h2>Ideas Grid</h2>
+        </TabHeader>
         <Tab title="Default generator">
           <AttributeSelector
             buttonLabel={settings.buttonLabel}
