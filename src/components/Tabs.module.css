@@ -14,20 +14,18 @@
   z-index: 10;
 }
 
-.tabHeaderContainer {
-  margin-left: 15px;
-}
-
 .tabHeader {
-  background-color: #888;
-  color: #fff;
-  border-bottom: none;
+  background-color: #efefef;
+  color: #555;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   display: inline-block;
-  margin-right: -1px;
+  margin-right: 4px;
+  margin-bottom: -1px;
+}
 
-  box-shadow: inset 6px -3px 23px -7px rgba(0, 0, 0, 0.66);
+.borderActive {
+  border-bottom: 1px solid #fff;
 }
 
 .tabHeader:hover {
