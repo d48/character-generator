@@ -3,12 +3,13 @@ import React from 'react';
 import styles from './Tabs.module.css';
 
 const Tabs = (props) => {
-  const { children, activeTab, ACTIVETAB } = props;
+  const { children, activeTab, ACTIVETAB, activeTabHandler } = props;
 
   const childrenWrapped = React.Children.map(children, (child, key) => {
     return React.cloneElement(child, {
       activeTab: activeTab,
       ACTIVETAB: ACTIVETAB,
+      activeTabHandler: activeTabHandler,
     });
   });
 
@@ -20,10 +21,11 @@ Tabs.propTypes = {
   children: PropTypes.node,
   activeTab: PropTypes.string,
   ACTIVETAB: PropTypes.object,
+  activeTabHandler: PropTypes.func,
 };
 
 const Tab = (props) => {
-  const { children, activeTab, ACTIVETAB, id } = props;
+  const { children, activeTab, ACTIVETAB, id, activeTabHandler } = props;
   return (
     <section className={activeTab === id ? styles.tabActive : styles.tab}>
       <div className={`${styles.content} ${styles.border}`}>{children}</div>
@@ -37,6 +39,7 @@ Tab.propTypes = {
   activeTab: PropTypes.string,
   ACTIVETAB: PropTypes.object,
   id: PropTypes.string,
+  activeTabHandler: PropTypes.func,
 };
 
 const TabHeader = (props) => {

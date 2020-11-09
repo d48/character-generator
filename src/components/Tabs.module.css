@@ -33,6 +33,7 @@
 .tabHeader:hover {
   background-color: #33c3f0;
   color: #fff;
+  cursor: pointer;
 }
 
 .tabHeader h2 {
@@ -48,6 +49,7 @@
 .tabHeaderActive {
   background-color: #fff;
   color: #000;
+  cursor: default;
 }
 
 .tab {

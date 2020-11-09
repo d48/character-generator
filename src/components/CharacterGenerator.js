@@ -15,6 +15,11 @@ const CharacterGenerator = (props) => {
   const { attributes, settings, ideasGrid } = props;
   const [activeTab, setActiveTab] = useState(ACTIVETAB.GENERATOR);
 
+  const activeTabHandler = (id) => {
+    console.log('id', id);
+    setActiveTab(id);
+  };
+
   return (
     <section>
       <CharacterGeneratorHeader
@@ -27,6 +32,7 @@ const CharacterGenerator = (props) => {
             className={
               activeTab === ACTIVETAB.GENERATOR ? styles.tabHeaderActive : ''
             }
+            onClick={() => activeTabHandler(ACTIVETAB.GENERATOR)}
           >
             Default Generator
           </h2>
@@ -34,6 +40,7 @@ const CharacterGenerator = (props) => {
             className={
               activeTab === ACTIVETAB.IDEASGRID ? styles.tabHeaderActive : ''
             }
+            onClick={() => activeTabHandler(ACTIVETAB.IDEASGRID)}
           >
             Ideas Grid
           </h2>
@@ -44,7 +51,11 @@ const CharacterGenerator = (props) => {
             attributes={attributes}
           />
         </Tab>
-        <Tab title="Ideas Grid" id="ideasgrid">
+        <Tab
+          title="Ideas Grid"
+          id="ideasgrid"
+          activeTabHandler={activeTabHandler}
+        >
           <IdeasGrid attributes={ideasGrid} />
         </Tab>
       </Tabs>
