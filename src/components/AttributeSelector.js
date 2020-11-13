@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import ActionBar from './ActionBar';
 import AttributeRow from './AttributeRow';
 import AttributeSelectorHeader from './AttributeSelectorHeader';
 import { groupByAndSetValue } from '../utils/helpers';
@@ -8,10 +7,14 @@ import getAttributeChoice from './AttributeChoice';
 const AttributeSelector = (props) => {
   const { attributes } = { ...props };
   const [selectall, setSelectall] = useState(true);
-  const [values, setValues] = useState(groupByAndSetValue(attributes, 'name', ''));
-  const [checked, setChecked] = useState(groupByAndSetValue(attributes, 'name', true));
+  const [values, setValues] = useState(
+    groupByAndSetValue(attributes, 'name', '')
+  );
+  const [checked, setChecked] = useState(
+    groupByAndSetValue(attributes, 'name', true)
+  );
   const formatters = attributes
-    .filter(item => item.format)
+    .filter((item) => item.format)
     .reduce((acc, currVal) => {
       acc[currVal.name] = currVal.format;
       return acc;
@@ -22,12 +25,12 @@ const AttributeSelector = (props) => {
     const value = event.target.checked;
     setChecked(groupByAndSetValue(attributes, 'name', value));
     setSelectall(value);
-  }
+  };
 
   // For row checkbox
   const onChangeHandler = (event) => {
     const name = event.target.name;
-    const value= event.target.checked;
+    const value = event.target.checked;
 
     setChecked((checked) => {
       let updated = checked;
@@ -38,15 +41,15 @@ const AttributeSelector = (props) => {
 
   // For button
   const onClickHandler = () => {
-      const choices = getAttributeChoice(attributes)
-      setValues({...choices});
+    const choices = getAttributeChoice(attributes);
+    setValues({ ...choices });
   };
 
   // Component setup
   const attributeObject = [];
 
   for (let key in checked) {
-    let format = (typeof formatters[key]) !== 'undefined' && formatters[key];
+    let format = typeof formatters[key] !== 'undefined' && formatters[key];
 
     attributeObject.push(
       <AttributeRow
@@ -66,13 +69,14 @@ const AttributeSelector = (props) => {
       <AttributeSelectorHeader
         selectall={selectall}
         onClickSelectAllHandler={onClickSelectAllHandler}
+        onClickHandler={onClickHandler}
+        {...props}
       />
       <ul className="attribute-list" data-testid="attribute-list">
-      {attributeObject}
+        {attributeObject}
       </ul>
-      <ActionBar onClickHandler={onClickHandler} {...props} />
     </section>
-  )
+  );
 };
 
 export default AttributeSelector;
