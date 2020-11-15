@@ -1,0 +1,12 @@
+.header {
+  display: inline-flex;
+  padding: 0 30px 0 0;
+}
+.idea {
+  border: 1px solid;
+  border-radius: 15px;
+  margin-right: 10px;
+  padding: 1px 10px;
+  margin-bottom: 10px;
+  display: inline-flex;
+}
