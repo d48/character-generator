@@ -13,7 +13,7 @@ const ACTIVETAB = {
 
 const CharacterGenerator = (props) => {
   const { attributes, settings, ideasGrid } = props;
-  const [activeTab, setActiveTab] = useState(ACTIVETAB.GENERATOR);
+  const [activeTab, setActiveTab] = useState(ACTIVETAB.IDEASGRID);
 
   const activeTabHandler = (id) => {
     if (id === activeTab) return;

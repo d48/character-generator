@@ -9,6 +9,6 @@ const groupByAndSetValue = (objArray, property, initialValue) => {
 };
 
 // return random index from 0 to num
-const getRandomIndex = num => Math.floor(Math.random(num) * num);
+const getRandomIndex = (num) => Math.floor(Math.random(num) * num);
 
 export { groupByAndSetValue, getRandomIndex };
