@@ -18,7 +18,7 @@ const IdeasGrid = (props) => {
   const { attributes } = props;
   const [refresh, setRefresh] = useState(false);
   const refreshSelection = () => {
-    setRefresh((refresh) => !refresh);
+    setRefresh(!refresh);
   };
 
   const output = attributes.map((attribute, index) => {

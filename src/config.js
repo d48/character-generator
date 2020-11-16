@@ -4,8 +4,7 @@ import heightConversion from './plugins/heightConversion.js';
 
 const SETTINGS = {
   title: 'Character Generator',
-  description:
-    'Character illustration tool to help generate ideas for drawing.',
+  description: 'Illustration tool to help generate character ideas to draw.',
   buttonLabel: 'Generate Character',
 };
 
