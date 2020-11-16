@@ -9,6 +9,7 @@ const AttributeSelectorHeader = (props) => {
 
   return (
     <header>
+      <ActionBar onClickHandler={onClickHandler} buttonLabel={buttonLabel} />
       <input
         type="checkbox"
         id="selectall"
@@ -17,9 +18,8 @@ const AttributeSelectorHeader = (props) => {
         onChange={onClickSelectAllHandler}
       />
       <label htmlFor="selectall" className={styles.inputLabel}>
-        Select All
+        {selectall ? 'Deselect All' : 'Select All'}
       </label>
-      <ActionBar onClickHandler={onClickHandler} buttonLabel={buttonLabel} />
     </header>
   );
 };

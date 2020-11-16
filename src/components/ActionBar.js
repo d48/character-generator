@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './ActionBar.module.css';
 
 const ActionBar = (props) => {
   const { buttonLabel, onClickHandler } = { ...props };
@@ -7,7 +8,7 @@ const ActionBar = (props) => {
     <button
       id="btn-generate"
       onClick={onClickHandler}
-      className="button-primary"
+      className={`button-primary ${styles.btnGenerate}`}
       data-testid="button-generate"
     >
       {buttonLabel}
