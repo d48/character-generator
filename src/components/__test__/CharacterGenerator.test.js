@@ -23,7 +23,7 @@ test('Loads Character Generator with props', () => {
   expect(container.querySelector('h2')).toHaveTextContent(
     props.settings.description
   );
-  expect(container.querySelector('button')).toHaveTextContent(
+  expect(container.querySelectorAll('button')[1]).toHaveTextContent(
     props.settings.buttonLabel
   );
   expect(container.querySelectorAll('label')[1]).toHaveTextContent(

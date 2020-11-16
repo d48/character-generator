@@ -1,16 +1,18 @@
+* {
+  touch-action: manipulation;
+}
 #character-generator-container {
   margin-top: 20px;
 }
-
 
 .attribute-list {
   margin: 20px 0;
 }
 
-.column, .columns {
-  width: 100%
+.column,
+.columns {
+  width: 100%;
 }
-
 
 label {
   display: inline-block;
@@ -26,7 +28,8 @@ li.row:hover {
   background-color: beige;
 }
 
-button.button-primary, button.button-primary:focus {
+button.button-primary,
+button.button-primary:focus {
   background-color: #186077;
 }
 
@@ -36,7 +39,8 @@ h2 {
 
 /* for mobile widths */
 @media (min-width: 400px) {
-  .column, .columns {
+  .column,
+  .columns {
     width: 50%;
   }
 }

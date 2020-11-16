@@ -58,7 +58,7 @@ test('Loads Attribute Selector list of AttributeRows that have click handlers', 
 });
 
 test('Loads Attribute Selector with button and click handler to generate attributes', () => {
-  const button = getByTestId(containerTest, 'button-generate');
+  const button = containerTest.querySelector('button');
 
   // act
   fireEvent.click(button);

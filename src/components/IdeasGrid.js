@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './IdeasGrid.module.css';
 import { colorShade } from './helpers';
 import { getRandomIndex } from '../utils/helpers';
+import ActionBar from './ActionBar';
 
 const COLORS = [
   { PURPLE: '#800080' },
@@ -15,8 +16,12 @@ const COLORS = [
 
 const IdeasGrid = (props) => {
   const { attributes } = props;
+  const [refresh, setRefresh] = useState(false);
+  const refreshSelection = () => {
+    setRefresh((refresh) => !refresh);
+  };
 
-  return attributes.map((attribute, index) => {
+  const output = attributes.map((attribute, index) => {
     let backgroundShade = colorShade(Object.values(COLORS[index])[0], 80);
     let randIndex = getRandomIndex(attribute.attributes.length);
 
@@ -52,6 +57,18 @@ const IdeasGrid = (props) => {
       </div>
     );
   });
+
+  return (
+    <>
+      <section className="row">
+        <ActionBar
+          onClickHandler={refreshSelection}
+          buttonLabel="Refresh Selection"
+        />
+      </section>
+      {output}
+    </>
+  );
 };
 
 export default IdeasGrid;

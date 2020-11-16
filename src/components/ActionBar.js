@@ -6,10 +6,8 @@ const ActionBar = (props) => {
 
   return (
     <button
-      id="btn-generate"
       onClick={onClickHandler}
       className={`button-primary ${styles.btnGenerate}`}
-      data-testid="button-generate"
     >
       {buttonLabel}
     </button>

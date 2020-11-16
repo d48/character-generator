@@ -44,7 +44,7 @@ const CharacterGenerator = (props) => {
             onClick={() => activeTabHandler(ACTIVETAB.GENERATOR)}
             id="generator"
           >
-            Default Generator
+            Attribute Generator
           </h2>
         </TabHeader>
         <Tab
