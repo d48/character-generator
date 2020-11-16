@@ -1,9 +1,9 @@
 .header {
   display: inline-flex;
-  padding: 0 30px 0 0;
+  text-decoration: underline;
 }
 .idea {
-  border: 1px solid;
+  border: 1px solid #969494;
   border-radius: 15px;
   margin-right: 10px;
   padding: 1px 10px;

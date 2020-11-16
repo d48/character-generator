@@ -25,7 +25,7 @@ const IdeasGrid = (props) => {
         <h3
           className={styles.header}
           style={{
-            backgroundColor: backgroundShade,
+            textDecorationColor: backgroundShade,
           }}
         >
           {attribute.name}
