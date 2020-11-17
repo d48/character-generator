@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/d48/character-generator/compare/v1.0.0...v1.1.0) (2020-11-17)
+
+
+### Features
+
+* **actionbar:** reformat generate button. add styling for alignment ([a6c655c](https://github.com/d48/character-generator/commits/a6c655c624bf5803acb6c66315505842839f7a3f))
+* **app:** rename buttons. add default attribute generator ([3913e4a](https://github.com/d48/character-generator/commits/3913e4ae08fc6609eedfa15c5556f2658310ce67))
+* **color:** add color to IdeasGrid ([331844d](https://github.com/d48/character-generator/commits/331844dd856af205f0b92af5e29dfdb44f87e07f))
+* **defaultgenerator:** update text from derived state for deselect all ([c6c4781](https://github.com/d48/character-generator/commits/c6c4781edd56fdbcdc7e5d7fc6192c6fd17e6583))
+* **ideasgrid:** add color and ideastable ([658b3d7](https://github.com/d48/character-generator/commits/658b3d782af6c6ac914cc87bff5541277a626b03))
+* **ideasgrid:** change description. update use of state for refreshing selection on ideas ([5ca38ae](https://github.com/d48/character-generator/commits/5ca38aea245bd1bd18bd18fe1263d0490f219fed))
+* **ideasgrid:** fix up styling for buttons. create refresh selection. update test ([1725d49](https://github.com/d48/character-generator/commits/1725d49570d3a877bb3846dd49185a89b0ee773e))
+* **ideasgrid:** randomize colors on the list ([e21a9d3](https://github.com/d48/character-generator/commits/e21a9d33695c6c8fdf9cccb596462aab638a6fb8))
+* **ideasgrid:** reformat so ideasgrid is first ([6e512ff](https://github.com/d48/character-generator/commits/6e512ff27378d16cf6388a98ccb6e04c6b7c7a0f))
+* **ideasgrid:** text decoration color and disable doulbe tap ([1ee1b6e](https://github.com/d48/character-generator/commits/1ee1b6ecd7da46d2d8060ba256ab406d5fa46677))
+
 ## [1.0.0](https://github.com/d48/character-generator/compare/v0.0.0-development...v1.0.0) (2020-11-09)
 
 
