@@ -63,7 +63,7 @@ const IdeasGrid = (props) => {
       <section className="row">
         <ActionBar
           onClickHandler={refreshSelection}
-          buttonLabel="Refresh Selection"
+          buttonLabel="Shuffle Idea"
         />
       </section>
       {output}

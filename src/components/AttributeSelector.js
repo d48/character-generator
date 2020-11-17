@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import AttributeRow from './AttributeRow';
 import AttributeSelectorHeader from './AttributeSelectorHeader';
 import { groupByAndSetValue } from '../utils/helpers';
@@ -63,6 +63,10 @@ const AttributeSelector = (props) => {
       />
     );
   }
+
+  useEffect(() => {
+    onClickHandler();
+  }, [])
 
   return (
     <section>
