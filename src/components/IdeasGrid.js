@@ -3,12 +3,13 @@ import styles from './IdeasGrid.module.css';
 import { colorShade } from './helpers';
 import { getRandomIndex } from '../utils/helpers';
 import ActionBar from './ActionBar';
+import IdeasTable from './IdeasTable';
 
 const COLORS = [
-  { PURPLE: '#800080' },
-  { BLUE: '#0000ff' },
-  { RED: '#ff0000' },
-  { ORANGE: '#ffa500' },
+  { PURPLE: '#bc3adc' },
+  { BLUE: '#295efb' },
+  { RED: '#fc3232' },
+  { ORANGE: '#e58103' },
   { YELLOW: '#ffff00' },
   { YELLOWGREEN: '#9acd32' },
   { GREEN: '#008000' },
@@ -17,6 +18,15 @@ const COLORS = [
 const IdeasGrid = (props) => {
   const { attributes } = props;
   const [refresh, setRefresh] = useState(false);
+  const ideaTable = []
+
+  /*
+    {
+      name: 'Anatomy',
+      value: 'Skinny'
+    }
+  */
+
   const refreshSelection = () => {
     setRefresh(!refresh);
   };
@@ -40,9 +50,12 @@ const IdeasGrid = (props) => {
             let styleBackgroundShade = {
               backgroundColor: 'transparent',
             };
+
             if (index === randIndex) {
               styleBackgroundShade.backgroundColor = backgroundShade;
+              ideaTable.push({ name: attribute.name, value: attrib, color: backgroundShade })
             }
+
             return (
               <li
                 key={index}
@@ -66,6 +79,7 @@ const IdeasGrid = (props) => {
           buttonLabel="Shuffle Idea"
         />
       </section>
+      <IdeasTable table={ideaTable} />
       {output}
     </>
   );

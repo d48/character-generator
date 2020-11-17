@@ -64,9 +64,7 @@ const AttributeSelector = (props) => {
     );
   }
 
-  useEffect(() => {
-    onClickHandler();
-  }, [])
+  useEffect(onClickHandler, [])
 
   return (
     <section>

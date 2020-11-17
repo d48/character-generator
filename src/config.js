@@ -96,7 +96,7 @@ const ATTRIBUTES = [
     values: ['Necklace', 'Hat', 'Watch', 'Ring', 'Earring'],
   },
   {
-    name: 'Facial expression',
+    name: 'Expression',
     description: '',
     values: [
       'Pouting',
