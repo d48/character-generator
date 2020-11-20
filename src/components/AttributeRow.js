@@ -4,8 +4,8 @@ const AttributeRow = (props) => {
   const { name, checked, onChangeHandler, format, result } = props;
 
   return (
-    <li className="row" key={name}>
-      <section className="six columns">
+    <tr key={name}>
+      <td>
         <input
           type="checkbox"
           id={name}
@@ -14,11 +14,11 @@ const AttributeRow = (props) => {
           onChange={onChangeHandler}
         />
         <label htmlFor={name}>{name}</label>
-      </section>
-
-      {/* conditionally apply formatting to result if available */}
-      <section className="six columns attribute-result">{checked ? (format && result ? format(result) : result) : ''}</section>
-    </li>
+      </td>
+      <td className="attribute-result">
+        {checked ? (format && result ? format(result) : result) : ''}
+      </td>
+    </tr>
   );
 };
 

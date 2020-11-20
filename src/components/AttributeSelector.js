@@ -64,7 +64,7 @@ const AttributeSelector = (props) => {
     );
   }
 
-  useEffect(onClickHandler, [])
+  useEffect(onClickHandler, []);
 
   return (
     <section>
@@ -74,9 +74,17 @@ const AttributeSelector = (props) => {
         onClickHandler={onClickHandler}
         {...props}
       />
-      <ul className="attribute-list" data-testid="attribute-list">
-        {attributeObject}
-      </ul>
+      <table className="u-full-width">
+        <thead>
+          <tr>
+            <th>Attribute</th>
+            <th>Value</th>
+          </tr>
+        </thead>
+        <tbody data-testid="attribute-list">
+          {attributeObject.map((obj) => obj)}
+        </tbody>
+      </table>
     </section>
   );
 };
