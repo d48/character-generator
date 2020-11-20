@@ -1,6 +1,12 @@
 * {
   touch-action: manipulation;
 }
+
+body {
+  background: linear-gradient(#d2cfd1, #f0f1ef);
+  background-attachment: fixed;
+}
+
 #character-generator-container {
   margin-top: 20px;
 }

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import styles from './IdeasGrid.module.css';
 import { colorShade } from './helpers';
 import { getRandomIndex } from '../utils/helpers';
@@ -18,14 +19,7 @@ const COLORS = [
 const IdeasGrid = (props) => {
   const { attributes } = props;
   const [refresh, setRefresh] = useState(false);
-  const ideaTable = []
-
-  /*
-    {
-      name: 'Anatomy',
-      value: 'Skinny'
-    }
-  */
+  const ideaTable = [];
 
   const refreshSelection = () => {
     setRefresh(!refresh);
@@ -53,7 +47,11 @@ const IdeasGrid = (props) => {
 
             if (index === randIndex) {
               styleBackgroundShade.backgroundColor = backgroundShade;
-              ideaTable.push({ name: attribute.name, value: attrib, color: backgroundShade })
+              ideaTable.push({
+                name: attribute.name,
+                value: attrib,
+                color: backgroundShade,
+              });
             }
 
             return (
@@ -83,6 +81,10 @@ const IdeasGrid = (props) => {
       {output}
     </>
   );
+};
+
+IdeasGrid.propTypes = {
+  attributes: PropTypes.array,
 };
 
 export default IdeasGrid;

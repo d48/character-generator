@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './IdeasGrid.module.css';
 
 const IdeasTable = ({ table }) => {
@@ -15,13 +16,24 @@ const IdeasTable = ({ table }) => {
           return (
             <tr key={key}>
               <td>{item.name}</td>
-              <td><span style={{backgroundColor: `${item.color}`}} className={`${styles.idea} ${styles.ideaTable}`} >{item.value}</span></td>
+              <td>
+                <span
+                  style={{ backgroundColor: `${item.color}` }}
+                  className={`${styles.idea} ${styles.ideaTable}`}
+                >
+                  {item.value}
+                </span>
+              </td>
             </tr>
-          )
+          );
         })}
       </tbody>
     </table>
   );
 };
 
-export default IdeasTable
+IdeasTable.propTypes = {
+  table: PropTypes.array,
+};
+
+export default IdeasTable;
