@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/d48/character-generator/compare/v1.1.0...v1.2.0) (2020-11-20)
+
+
+### Features
+
+* **attributerow:** update from divs to table. update tests with use of tbody as render container ([cfc34e3](https://github.com/d48/character-generator/commits/cfc34e39704b78d402ac81540388ec5483b2513c))
+* **ideasgrid:** fix up styling and add background gradient ([766e173](https://github.com/d48/character-generator/commits/766e173477ccf4a87fec3afb1cd97451320755ce))
+
 ## [1.1.0](https://github.com/d48/character-generator/compare/v1.0.0...v1.1.0) (2020-11-17)
 
 
