@@ -7,7 +7,7 @@ const ActionBar = (props) => {
   return (
     <button
       onClick={onClickHandler}
-      className={`${type} ${styles.btnGenerate}`}
+      className={`${type} ${styles.buttonPrimary}`}
     >
       {buttonLabel}
     </button>

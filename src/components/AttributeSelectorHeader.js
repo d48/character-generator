@@ -10,16 +10,18 @@ const AttributeSelectorHeader = (props) => {
   return (
     <header>
       <ActionBar onClickHandler={onClickHandler} buttonLabel={buttonLabel} />
-      <input
-        type="checkbox"
-        id="selectall"
-        name="selectall"
-        checked={selectall}
-        onChange={onClickSelectAllHandler}
-      />
-      <label htmlFor="selectall" className={styles.inputLabel}>
-        {selectall ? 'Deselect All' : 'Select All'}
-      </label>
+      <section className="row">
+        <input
+          type="checkbox"
+          id="selectall"
+          name="selectall"
+          checked={selectall}
+          onChange={onClickSelectAllHandler}
+        />
+        <label htmlFor="selectall" className={styles.inputLabel}>
+          {selectall ? 'Deselect All' : 'Select All'}
+        </label>
+      </section>
     </header>
   );
 };
