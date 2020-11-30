@@ -62,6 +62,12 @@ const IdeasGrid = (props) => {
           buttonLabel={view ? 'View Category Lists' : '<- Back to Ideas Grid'}
         />
       </section>
+      <section className="row">
+        <p>
+          A random character idea has been generated for you. Click the{' '}
+          <strong>"Shuffle Idea"</strong> button to generate another idea.
+        </p>
+      </section>
       <section>
         {view ? <IdeasTable table={ideaTable} /> : ''}
         {!view ? (
