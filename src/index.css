@@ -50,3 +50,13 @@ h2 {
     width: 50%;
   }
 }
+
+th:last-child,
+td:last-child {
+  width: 50%;
+  max-width: 50%;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: rgb(252, 250, 250);
+}
