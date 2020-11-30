@@ -14,3 +14,19 @@
 .ideaTable {
   margin-bottom: 0;
 }
+
+.icon {
+  color: #0a9ccd;
+  vertical-align: middle;
+  font-size: 2em;
+}
+
+.areaClick {
+  color: #0a9ccd;
+  cursor: pointer;
+  user-select: none;
+}
+
+.areaClick:hover {
+  text-decoration: underline;
+}

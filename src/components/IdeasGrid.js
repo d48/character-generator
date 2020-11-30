@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import ActionBar from './ActionBar';
 import IdeasTable from './IdeasTable';
 import IdeasList from './IdeasList';
+import { BsArrowLeftShort, BsArrowRightShort } from 'react-icons/bs';
 import { colorShade } from './helpers';
 import { getRandomIndex } from '../utils/helpers';
+import styles from './IdeasGrid.module.css';
 
 const COLORS = [
   { PURPLE: '#bc3adc' },
@@ -54,13 +56,6 @@ const IdeasGrid = (props) => {
           onClickHandler={refreshSelection}
           buttonLabel="Shuffle Idea"
         />
-        <ActionBar
-          type="button"
-          onClickHandler={() => {
-            setView((state) => !state);
-          }}
-          buttonLabel={view ? 'View Category Lists' : '<- Back to Ideas Grid'}
-        />
       </section>
       <section className="row">
         <p>
@@ -69,6 +64,22 @@ const IdeasGrid = (props) => {
         </p>
       </section>
       <section>
+        <p
+          onClick={() => setView((state) => !state)}
+          className={styles.areaClick}
+        >
+          {view ? (
+            <>
+              <BsArrowRightShort className={styles.icon} />
+              View Category List
+            </>
+          ) : (
+            <>
+              <BsArrowLeftShort className={styles.icon} />
+              Back to Ideas Grid
+            </>
+          )}
+        </p>
         {view ? <IdeasTable table={ideaTable} /> : ''}
         {!view ? (
           <section>
