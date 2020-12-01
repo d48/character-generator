@@ -52,12 +52,6 @@ const IdeasGrid = (props) => {
   return (
     <>
       <section className="row">
-        <ActionBar
-          onClickHandler={refreshSelection}
-          buttonLabel="Shuffle Idea"
-        />
-      </section>
-      <section className="row">
         <p>
           A random character idea has been generated for you. Click the{' '}
           <strong>"Shuffle Idea"</strong> button to generate another idea.
@@ -80,6 +74,12 @@ const IdeasGrid = (props) => {
             </>
           )}
         </p>
+        <section className="row">
+          <ActionBar
+            onClickHandler={refreshSelection}
+            buttonLabel="Shuffle Idea"
+          />
+        </section>
         {view ? <IdeasTable table={ideaTable} /> : ''}
         {!view ? (
           <section>

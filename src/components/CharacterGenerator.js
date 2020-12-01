@@ -44,23 +44,32 @@ const CharacterGenerator = (props) => {
             onClick={() => activeTabHandler(ACTIVETAB.GENERATOR)}
             id="generator"
           >
-            Attribute Generator
+            More Ideas
           </h2>
         </TabHeader>
-        <Tab
-          title="Ideas Grid"
-          id="ideasgrid"
-          activeTabHandler={activeTabHandler}
-        >
+        <Tab id="ideasgrid" activeTabHandler={activeTabHandler}>
           <IdeasGrid attributes={ideasGrid} />
         </Tab>
-        <Tab title="Default generator" id="generator">
+        <Tab id="generator">
           <AttributeSelector
             buttonLabel={settings.buttonLabel}
             attributes={attributes}
           />
         </Tab>
       </Tabs>
+      <section className="row">
+        <p>
+          Artist tool created by{' '}
+          <a
+            href="https://github.com/d48"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Ryan Regalado
+          </a>{' '}
+          - &copy; 2020
+        </p>
+      </section>
     </section>
   );
 };
