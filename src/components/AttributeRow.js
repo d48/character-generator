@@ -1,11 +1,12 @@
 import React from 'react';
+import styles from './AttributeRow.module.css';
 
 const AttributeRow = (props) => {
   const { name, checked, onChangeHandler, format, result } = props;
 
   return (
     <tr key={name}>
-      <td>
+      <td className={styles.firstColumn}>
         <input
           type="checkbox"
           id={name}

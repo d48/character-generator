@@ -16,7 +16,7 @@ const AttributeSelectorHeader = (props) => {
         buttonLabel={buttonLabel}
         icon={<BsArrowRepeat className={stylesGrid.iconStyle} />}
       />
-      <section className="row">
+      <section className={`row ${styles.inputFieldArea}`}>
         <input
           type="checkbox"
           id="selectall"

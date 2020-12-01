@@ -1,3 +1,7 @@
 .inputLabel {
   margin-right: 30px;
 }
+
+.inputFieldArea {
+  user-select: none;
+}
