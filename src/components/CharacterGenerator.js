@@ -4,6 +4,7 @@ import CharacterGeneratorHeader from './CharacterGeneratorHeader';
 import AttributeSelector from './AttributeSelector';
 import IdeasGrid from './IdeasGrid';
 import { Tabs, Tab, TabHeader } from './Tabs';
+import { BsGridFill, BsBrightnessHighFill } from 'react-icons/bs';
 import styles from './Tabs.module.css';
 
 const ACTIVETAB = {
@@ -35,7 +36,7 @@ const CharacterGenerator = (props) => {
             onClick={() => activeTabHandler(ACTIVETAB.IDEASGRID)}
             id="ideasgrid"
           >
-            Ideas Grid
+            <BsGridFill className={styles.iconStyle} /> Ideas Grid
           </h2>
           <h2
             className={
@@ -44,7 +45,7 @@ const CharacterGenerator = (props) => {
             onClick={() => activeTabHandler(ACTIVETAB.GENERATOR)}
             id="generator"
           >
-            More Ideas
+            <BsBrightnessHighFill className={styles.iconStyle} /> More Ideas
           </h2>
         </TabHeader>
         <Tab id="ideasgrid" activeTabHandler={activeTabHandler}>
