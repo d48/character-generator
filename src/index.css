@@ -34,6 +34,11 @@ li.row:hover {
   background-color: beige;
 }
 
+button {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
 button.button-primary,
 button.button-primary:focus {
   background-color: #0a9ccd;

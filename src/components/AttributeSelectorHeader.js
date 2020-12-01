@@ -1,6 +1,8 @@
 import React from 'react';
 import ActionBar from './ActionBar';
 import styles from './AttributeSelectorHeader.module.css';
+import { BsArrowRepeat } from 'react-icons/bs';
+import stylesGrid from './IdeasGrid.module.css';
 
 const AttributeSelectorHeader = (props) => {
   const { buttonLabel, selectall, onClickHandler, onClickSelectAllHandler } = {
@@ -9,7 +11,11 @@ const AttributeSelectorHeader = (props) => {
 
   return (
     <header>
-      <ActionBar onClickHandler={onClickHandler} buttonLabel={buttonLabel} />
+      <ActionBar
+        onClickHandler={onClickHandler}
+        buttonLabel={buttonLabel}
+        icon={<BsArrowRepeat className={stylesGrid.iconStyle} />}
+      />
       <section className="row">
         <input
           type="checkbox"

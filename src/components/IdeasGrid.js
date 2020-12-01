@@ -3,7 +3,11 @@ import PropTypes from 'prop-types';
 import ActionBar from './ActionBar';
 import IdeasTable from './IdeasTable';
 import IdeasList from './IdeasList';
-import { BsArrowLeftShort, BsArrowRightShort } from 'react-icons/bs';
+import {
+  BsArrowRepeat,
+  BsArrowLeftShort,
+  BsArrowRightShort,
+} from 'react-icons/bs';
 import { colorShade } from './helpers';
 import { getRandomIndex } from '../utils/helpers';
 import styles from './IdeasGrid.module.css';
@@ -78,6 +82,7 @@ const IdeasGrid = (props) => {
           <ActionBar
             onClickHandler={refreshSelection}
             buttonLabel="Shuffle Idea"
+            icon={<BsArrowRepeat className={styles.iconStyle} />}
           />
         </section>
         {view ? <IdeasTable table={ideaTable} /> : ''}
