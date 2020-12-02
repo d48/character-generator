@@ -17,6 +17,7 @@
   border-top-left-radius: 0;
 }
 
+
 .content section {
   flex-basis: 100%;
 }
@@ -36,6 +37,7 @@
   margin-right: 4px;
   margin-bottom: -1px;
   user-select: none;
+  cursor: pointer;
 }
 
 .borderActive {
@@ -80,3 +82,16 @@
   margin-top: -3px;
   margin-right: 5px;
 }
+
+@media (max-width: 415px) {
+  .content {
+    border: none;
+    padding: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .tabHeader {
+    border: none;
+  }
+}
+

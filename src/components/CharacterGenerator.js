@@ -6,6 +6,7 @@ import IdeasGrid from './IdeasGrid';
 import { Tabs, Tab, TabHeader } from './Tabs';
 import { BsGridFill, BsBrightnessHighFill } from 'react-icons/bs';
 import styles from './Tabs.module.css';
+import stylesApp from './CharacterGenerator.module.css';
 
 const ACTIVETAB = {
   GENERATOR: 'generator',
@@ -58,17 +59,16 @@ const CharacterGenerator = (props) => {
           />
         </Tab>
       </Tabs>
-      <section className="row">
+      <section className={`row ${stylesApp.footer}`}>
         <p>
-          Artist tool created by{' '}
+          &copy; 2020 - Artist tool created by{' '}
           <a
             href="https://github.com/d48"
             target="_blank"
             rel="noopener noreferrer"
           >
             Ryan Regalado
-          </a>{' '}
-          - &copy; 2020
+          </a>
         </p>
       </section>
     </section>

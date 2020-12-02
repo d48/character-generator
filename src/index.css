@@ -3,7 +3,7 @@
 }
 
 body {
-  background: linear-gradient(#d2cfd1, #f0f1ef);
+  background: linear-gradient(#d2cfd1, #fff);
   background-attachment: fixed;
 }
 
@@ -53,6 +53,34 @@ h2 {
   .column,
   .columns {
     width: 50%;
+  }
+}
+
+@media (max-width: 415px) {
+  p {
+    margin-bottom: 1.0em;
+  }
+
+  #character-generator-container {
+    /* background-color: #abd8f3; */
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  #character-generator-container > section > header {
+    padding: 10px;
+  }
+
+
+  #character-generator-container > section > header h1 {
+    font-size: 2em;
+    text-transform: uppercase;
+  }
+
+
+  #character-generator-container > section > header h2 {
+    font-size: 1.5em;
   }
 }
 
