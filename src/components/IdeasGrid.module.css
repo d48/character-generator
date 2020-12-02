@@ -34,8 +34,15 @@
   color: #0a9ccd;
   cursor: pointer;
   user-select: none;
+  width: 25%;
 }
 
 .areaClick:hover {
   text-decoration: underline;
+}
+
+@media (max-width: 415px) {
+  .areaClick {
+    width: 50%;
+  }
 }
