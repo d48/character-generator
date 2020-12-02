@@ -4,4 +4,5 @@
 
 .inputFieldArea {
   user-select: none;
+  margin: 1rem 0;
 }
