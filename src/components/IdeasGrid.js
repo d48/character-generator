@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import ActionBar from './ActionBar';
 import IdeasTable from './IdeasTable';
@@ -10,6 +10,8 @@ import {
 } from 'react-icons/bs';
 import { colorShade } from './helpers';
 import { getRandomIndex } from '../utils/helpers';
+import * as htmlToImage from 'html-to-image';
+import * as download from 'downloadjs';
 import styles from './IdeasGrid.module.css';
 
 const COLORS = [
@@ -44,6 +46,14 @@ const IdeasGrid = (props) => {
   const { attributes } = props;
   const [view, setView] = useState(true);
   const [ideaTable, setIdeaTable] = useState([]);
+
+  var tableRef = useRef();
+
+  const downloadImage = (ref) => {
+    htmlToImage
+      .toPng(ref.current)
+      .then((dataUrl) => download(dataUrl, 'character-idea.png'));
+  };
 
   const refreshSelection = () => {
     setIdeaTable(createIdeaTable(attributes));
@@ -84,8 +94,15 @@ const IdeasGrid = (props) => {
             buttonLabel="Shuffle Idea"
             icon={<BsArrowRepeat className={styles.iconStyle} />}
           />
+          <ActionBar
+            type="button"
+            onClickHandler={() => {
+              downloadImage(tableRef);
+            }}
+            buttonLabel="Save Idea as Image"
+          />
         </section>
-        {view ? <IdeasTable table={ideaTable} /> : ''}
+        {view ? <IdeasTable table={ideaTable} tableRef={tableRef} /> : ''}
         {!view ? (
           <section>
             <IdeasList attributes={attributes} ideaTable={ideaTable} />
