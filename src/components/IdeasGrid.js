@@ -50,8 +50,12 @@ const IdeasGrid = (props) => {
   var tableRef = useRef();
 
   const downloadImage = (ref) => {
+    const options = {
+      pixelRatio: 1,
+    };
+
     htmlToImage
-      .toPng(ref.current)
+      .toPng(ref.current, options)
       .then((dataUrl) => download(dataUrl, 'character-idea.png'));
   };
 
