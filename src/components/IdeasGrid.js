@@ -94,13 +94,17 @@ const IdeasGrid = (props) => {
             buttonLabel="Shuffle Idea"
             icon={<BsArrowRepeat className={styles.iconStyle} />}
           />
-          <ActionBar
-            type="button"
-            onClickHandler={() => {
-              downloadImage(tableRef);
-            }}
-            buttonLabel="Save Idea as Image"
-          />
+          {view ? (
+            <ActionBar
+              type="button"
+              onClickHandler={() => {
+                downloadImage(tableRef);
+              }}
+              buttonLabel="Save Idea as Image"
+            />
+          ) : (
+            ''
+          )}
         </section>
         {view ? <IdeasTable table={ideaTable} tableRef={tableRef} /> : ''}
         {!view ? (
