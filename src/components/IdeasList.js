@@ -13,15 +13,14 @@ const IdeasList = (props) => {
         <h3
           className={styles.header}
           style={{
-            textDecorationColor: backgroundShade,
-          }}
-        >
+            textDecorationColor: backgroundShade
+          }}>
           {attribute.name}
         </h3>
         <ul>
           {attribute.attributes.map((attrib, index) => {
             let styleBackgroundShade = {
-              backgroundColor: 'transparent',
+              backgroundColor: 'transparent'
             };
 
             if (index === randIndex) {
@@ -32,8 +31,7 @@ const IdeasList = (props) => {
               <li
                 key={index}
                 className={styles.idea}
-                style={styleBackgroundShade}
-              >
+                style={styleBackgroundShade}>
                 {attrib}
               </li>
             );

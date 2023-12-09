@@ -6,7 +6,7 @@ import stylesGrid from './IdeasGrid.module.css';
 
 const AttributeSelectorHeader = (props) => {
   const { buttonLabel, selectall, onClickHandler, onClickSelectAllHandler } = {
-    ...props,
+    ...props
   };
 
   return (

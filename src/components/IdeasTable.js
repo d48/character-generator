@@ -9,8 +9,7 @@ const IdeasTable = ({ table, tableRef }) => {
       <table
         className={`u-full-width ${stylesTable.ideasTable}`}
         id="idea-table"
-        ref={tableRef}
-      >
+        ref={tableRef}>
         <thead>
           <tr>
             <th>Category</th>
@@ -25,8 +24,7 @@ const IdeasTable = ({ table, tableRef }) => {
                 <td>
                   <span
                     style={{ backgroundColor: `${item.color}` }}
-                    className={`${styles.idea} ${styles.ideaTable}`}
-                  >
+                    className={`${styles.idea} ${styles.ideaTable}`}>
                     {item.value}
                   </span>
                 </td>
@@ -41,7 +39,7 @@ const IdeasTable = ({ table, tableRef }) => {
 
 IdeasTable.propTypes = {
   table: PropTypes.array,
-  tableRef: PropTypes.object,
+  tableRef: PropTypes.object
 };
 
 export default IdeasTable;

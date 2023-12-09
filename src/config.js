@@ -6,7 +6,7 @@ const SETTINGS = {
   title: 'Character Generator',
   description:
     'Illustration tool to help generate character ideas you can draw.',
-  buttonLabel: 'Shuffle Idea',
+  buttonLabel: 'Shuffle Idea'
 };
 
 const ATTRIBUTES = [
@@ -25,8 +25,8 @@ const ATTRIBUTES = [
       'Wavy',
       'Curly',
       'Afro',
-      'Mohawk',
-    ],
+      'Mohawk'
+    ]
   },
   {
     name: 'Hair color',
@@ -41,20 +41,20 @@ const ATTRIBUTES = [
       'White',
       'Red',
       'Yellow',
-      'Orange',
-    ],
+      'Orange'
+    ]
   },
   {
     name: 'Weight',
     description: '',
     values: weightRandomizer,
-    format: poundConversion,
+    format: poundConversion
   },
   {
     name: 'Height',
     description: '',
     values: [36, 48, 60, 72, 88, 102, 123],
-    format: heightConversion,
+    format: heightConversion
   },
   {
     name: 'Eye color',
@@ -69,13 +69,13 @@ const ATTRIBUTES = [
       'White',
       'Red',
       'Yellow',
-      'Orange',
-    ],
+      'Orange'
+    ]
   },
   {
     name: 'Skin color',
     description: 'Tan, spotted, albino, etc',
-    values: ['Tan', 'Golden', 'Black', 'White', 'Brown', 'Orange', 'Yellow'],
+    values: ['Tan', 'Golden', 'Black', 'White', 'Brown', 'Orange', 'Yellow']
   },
   {
     name: 'Body build',
@@ -88,13 +88,13 @@ const ATTRIBUTES = [
       'Medium',
       'Small',
       'Large',
-      'Skinny',
-    ],
+      'Skinny'
+    ]
   },
   {
     name: 'Accessories',
     description: '',
-    values: ['Necklace', 'Hat', 'Watch', 'Ring', 'Earring'],
+    values: ['Necklace', 'Hat', 'Watch', 'Ring', 'Earring']
   },
   {
     name: 'Expression',
@@ -118,8 +118,8 @@ const ATTRIBUTES = [
       'Serious',
       'Annoyed',
       'Disgusted',
-      'Yelling',
-    ],
+      'Yelling'
+    ]
   },
   {
     name: 'Action',
@@ -141,13 +141,13 @@ const ATTRIBUTES = [
       'Drinking from a cup',
       'Reading a book',
       'Looking at their phone',
-      'Reading the newspaper',
-    ],
+      'Reading the newspaper'
+    ]
   },
   {
     name: 'Gender',
     description: '',
-    values: ['Male', 'Female', 'Androgynous'],
+    values: ['Male', 'Female', 'Androgynous']
   },
   {
     name: 'Name',
@@ -159,9 +159,9 @@ const ATTRIBUTES = [
       'Griggio',
       'Eliana',
       'Brarben',
-      'Hauminor',
-    ],
-  },
+      'Hauminor'
+    ]
+  }
 ];
 
 const ANATOMY = [
@@ -184,7 +184,7 @@ const ANATOMY = [
   'Average',
   'Round',
   'Middle-aged',
-  'Broad',
+  'Broad'
 ];
 
 const STYLE = [
@@ -207,7 +207,7 @@ const STYLE = [
   'Boring',
   'Comfortable',
   'Expensive',
-  'Simple',
+  'Simple'
 ];
 
 const EMOTION = [
@@ -230,7 +230,7 @@ const EMOTION = [
   'Kind',
   'Awed',
   'Excited',
-  'Furious',
+  'Furious'
 ];
 
 const COLOR = [
@@ -253,7 +253,7 @@ const COLOR = [
   'Natural',
   'Monochrome',
   'Neon',
-  'Light',
+  'Light'
 ];
 
 const ROLE = [
@@ -276,7 +276,7 @@ const ROLE = [
   'Companion',
   'Teacher',
   'Trickster',
-  'Civilian',
+  'Civilian'
 ];
 
 const ITEM = [
@@ -299,7 +299,7 @@ const ITEM = [
   'Map',
   'Belt',
   'Glove',
-  'Earring',
+  'Earring'
 ];
 
 const SETTING = [
@@ -322,7 +322,7 @@ const SETTING = [
   'Dystopian',
   'Street',
   'Office',
-  'Mountain',
+  'Mountain'
 ];
 
 export {
@@ -334,5 +334,5 @@ export {
   COLOR,
   ROLE,
   ITEM,
-  SETTING,
+  SETTING
 };

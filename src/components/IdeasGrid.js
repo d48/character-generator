@@ -6,7 +6,7 @@ import IdeasList from './IdeasList';
 import {
   BsArrowRepeat,
   BsArrowLeftShort,
-  BsArrowRightShort,
+  BsArrowRightShort
 } from 'react-icons/bs';
 import { colorShade } from './helpers';
 import { getRandomIndex } from '../utils/helpers';
@@ -21,7 +21,7 @@ const COLORS = [
   { ORANGE: '#e58103' },
   { YELLOW: '#ffff00' },
   { YELLOWGREEN: '#9acd32' },
-  { GREEN: '#008000' },
+  { GREEN: '#008000' }
 ];
 
 const createIdeaTable = (attributes) => {
@@ -35,7 +35,7 @@ const createIdeaTable = (attributes) => {
       name: attribute.name,
       value: attribute.attributes[randIndex],
       color: backgroundShade,
-      selectedIndex: randIndex,
+      selectedIndex: randIndex
     });
   });
 
@@ -51,7 +51,7 @@ const IdeasGrid = (props) => {
 
   const downloadImage = (ref) => {
     const options = {
-      pixelRatio: 1,
+      pixelRatio: 1
     };
 
     htmlToImage
@@ -72,14 +72,14 @@ const IdeasGrid = (props) => {
       <section className="row">
         <p>
           A random character idea has been generated for you. Click the{' '}
-          <strong>"Shuffle Idea"</strong> button to generate another idea.
+          <strong>&quot;Shuffle Idea&quot;</strong> button to generate another
+          idea.
         </p>
       </section>
       <section>
         <p
           onClick={() => setView((state) => !state)}
-          className={styles.areaClick}
-        >
+          className={styles.areaClick}>
           {view ? (
             <>
               <BsArrowRightShort className={styles.icon} />
@@ -124,7 +124,7 @@ const IdeasGrid = (props) => {
 };
 
 IdeasGrid.propTypes = {
-  attributes: PropTypes.array,
+  attributes: PropTypes.array
 };
 
 export default IdeasGrid;

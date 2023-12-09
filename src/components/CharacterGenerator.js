@@ -10,7 +10,7 @@ import stylesApp from './CharacterGenerator.module.css';
 
 const ACTIVETAB = {
   GENERATOR: 'generator',
-  IDEASGRID: 'ideasgrid',
+  IDEASGRID: 'ideasgrid'
 };
 
 const CharacterGenerator = (props) => {
@@ -35,8 +35,7 @@ const CharacterGenerator = (props) => {
               activeTab === ACTIVETAB.IDEASGRID ? styles.tabHeaderActive : ''
             }
             onClick={() => activeTabHandler(ACTIVETAB.IDEASGRID)}
-            id="ideasgrid"
-          >
+            id="ideasgrid">
             <BsGridFill className={styles.iconStyle} /> Ideas Grid
           </h2>
           <h2
@@ -44,8 +43,7 @@ const CharacterGenerator = (props) => {
               activeTab === ACTIVETAB.GENERATOR ? styles.tabHeaderActive : ''
             }
             onClick={() => activeTabHandler(ACTIVETAB.GENERATOR)}
-            id="generator"
-          >
+            id="generator">
             <BsBrightnessHighFill className={styles.iconStyle} /> More Ideas
           </h2>
         </TabHeader>
@@ -65,8 +63,7 @@ const CharacterGenerator = (props) => {
           <a
             href="https://github.com/d48"
             target="_blank"
-            rel="noopener noreferrer"
-          >
+            rel="noopener noreferrer">
             Ryan Regalado
           </a>
         </p>
@@ -78,7 +75,7 @@ const CharacterGenerator = (props) => {
 CharacterGenerator.propTypes = {
   attributes: PropTypes.array,
   settings: PropTypes.object,
-  ideasGrid: PropTypes.array,
+  ideasGrid: PropTypes.array
 };
 
 export default CharacterGenerator;

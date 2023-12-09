@@ -7,9 +7,29 @@
     ],
     "plugins": ["prettier"],
     "rules": {
-      "prettier/prettier": ["error",{"singleQuote": true, "parser": "flow"}]
+      "prettier/prettier": [
+        "error",
+        {
+          "singleQuote": true,
+           "parser": "flow",
+           "endOfLine": "auto",
+           "trailingComma": "none",
+           "semi": true,
+           "tabWidth": 2,
+           "bracketSpacing": true,
+           "jsxBracketSameLine": true
+          }
+      ]
     },
-    "parser": "babel-eslint",
+    "parser": "@babel/eslint-parser",
+    "parserOptions": {
+      "requireConfigFile": false,
+      "babelOptions": {
+        "parserOpts": {
+          "plugins": ["jsx"]
+        }
+      }
+    },
     "env": {
       "browser": true
     },

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './AttributeRow.module.css';
 
 const AttributeRow = (props) => {
@@ -21,6 +22,14 @@ const AttributeRow = (props) => {
       </td>
     </tr>
   );
+};
+
+AttributeRow.propTypes = {
+  name: PropTypes.string.isRequired,
+  checked: PropTypes.bool.isRequired,
+  onChangeHandler: PropTypes.func.isRequired,
+  format: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
+  result: PropTypes.node
 };
 
 export default AttributeRow;

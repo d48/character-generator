@@ -6,7 +6,7 @@ const getAttributeChoice = (attributes) => {
   const choices = {};
 
   attributes.forEach((attribute) => {
-    let {values, name} = attribute;
+    let { values, name } = attribute;
 
     if (typeof values === 'function') {
       choices[name] = values();
@@ -15,7 +15,10 @@ const getAttributeChoice = (attributes) => {
     }
   });
 
-  choices['Name'] = choices['Gender'] === 'Male' ? fakerator.names.nameM() : fakerator.names.nameF()
+  choices['Name'] =
+    choices['Gender'] === 'Male'
+      ? fakerator.names.nameM()
+      : fakerator.names.nameF();
 
   return choices;
 };
