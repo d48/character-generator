@@ -2,6 +2,7 @@
   "name": "character-generator",
   "version": "1.2.0",
   "private": true,
+  "packageManager": "pnpm@8.12.0",
   "dependencies": {
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
