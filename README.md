@@ -7,7 +7,7 @@ Site can be viewed here: https://chargen.netlify.com/
 
 ![coverage badge](./coverage/badge.svg)
 
-![screenshot](https://content.screencast.com/users/Ryan.Regalado/folders/Default/media/559aff0a-f66e-47b1-92c1-558eb01fe46c/IMG_1283.PNG)
+![screenshot](https://cdn.screencast.com/uploads/g000302GGE4mmgFLvuV3AzQnV1LYO/e2efdaaa-953b-48d4-b07a-984671801e95-CharGen.art.png-318351.png?sv=2022-11-02&st=2023-12-09T22%3A38%3A53Z&se=2023-12-10T22%3A38%3A53Z&sr=b&sp=r&sig=0ybxjtaSDPaKsKcqWPU533keNEGa40SrtRDFoExyuy0%3D)
 
 ## Note
 App will be setup to handle attribute configuration for random generation of any object of interest. Example: Auto-generate worlds, vehicles, stories. The first use case is for personal character ideation.
@@ -15,8 +15,8 @@ App will be setup to handle attribute configuration for random generation of any
 # Usage
 
 ```
-yarn install
-yarn start
+pnpm install
+pnpm start
 ```
 
 1. Open webpage on localhost:3000
@@ -27,10 +27,7 @@ yarn start
 Uses [React Testing Library](https://testing-library.com/docs/react-testing-library/intro)
 
 ```
-yarn test
-
-// to run coverage locally
-yarn test:coverage
+pnpm test
 ```
 
 # Roadmap
