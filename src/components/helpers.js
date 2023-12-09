@@ -7,7 +7,7 @@ const colorShade = (col, amt) => {
   [r, g, b] = [
     parseInt(r, 16) + amt,
     parseInt(g, 16) + amt,
-    parseInt(b, 16) + amt,
+    parseInt(b, 16) + amt
   ];
 
   r = Math.max(Math.min(255, r), 0).toString(16);

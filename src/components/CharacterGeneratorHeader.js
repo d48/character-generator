@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import image from '../img/chargen-icon.png';
 import styles from './CharacterGeneratorHeader.module.css';
 
@@ -13,5 +14,10 @@ function CharacterGeneratorHeader(props) {
     </header>
   );
 }
+
+CharacterGeneratorHeader.propTypes = {
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired
+};
 
 export default CharacterGeneratorHeader;

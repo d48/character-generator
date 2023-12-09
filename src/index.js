@@ -11,7 +11,7 @@ import {
   COLOR,
   ROLE,
   ITEM,
-  SETTING,
+  SETTING
 } from './config';
 const ideasGrid = [
   { name: 'Anatomy', attributes: ANATOMY },
@@ -20,7 +20,7 @@ const ideasGrid = [
   { name: 'Color', attributes: COLOR },
   { name: 'Role', attributes: ROLE },
   { name: 'Item', attributes: ITEM },
-  { name: 'Setting', attributes: SETTING },
+  { name: 'Setting', attributes: SETTING }
 ];
 
 ReactDOM.render(

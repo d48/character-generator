@@ -8,7 +8,7 @@ const Tabs = (props) => {
   const childrenWrapped = React.Children.map(children, (child, key) => {
     return React.cloneElement(child, {
       activeTab: activeTab,
-      ACTIVETAB: ACTIVETAB,
+      ACTIVETAB: ACTIVETAB
     });
   });
 
@@ -18,7 +18,7 @@ const Tabs = (props) => {
 Tabs.propTypes = {
   children: PropTypes.node,
   activeTab: PropTypes.string,
-  ACTIVETAB: PropTypes.object,
+  ACTIVETAB: PropTypes.object
 };
 
 const Tab = (props) => {
@@ -35,7 +35,7 @@ Tab.propTypes = {
   children: PropTypes.node,
   activeTab: PropTypes.string,
   ACTIVETAB: PropTypes.object,
-  id: PropTypes.string,
+  id: PropTypes.string
 };
 
 const TabHeader = (props) => {
@@ -49,8 +49,7 @@ const TabHeader = (props) => {
             key={key}
             className={`${styles.tabHeader} ${styles.border} ${
               activeTab === id ? styles.borderActive : ''
-            }`}
-          >
+            }`}>
             {child}
           </section>
         );
@@ -64,6 +63,6 @@ TabHeader.propTypes = {
   children: PropTypes.node,
   activeTab: PropTypes.string,
   ACTIVETAB: PropTypes.object,
-  id: PropTypes.string,
+  id: PropTypes.string
 };
 export { Tab, Tabs, TabHeader };
