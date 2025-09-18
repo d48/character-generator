@@ -3,7 +3,7 @@
 
 Randomizes a character attribute list to be used for ideas in story or illustrations.
 
-Site can be viewed here: https://chargen.netlify.com/
+Site can be viewed here: https://www.chargen.art/
 
 ![coverage badge](./coverage/badge.svg)
 
