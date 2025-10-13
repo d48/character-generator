@@ -6,12 +6,17 @@ test('Loads Attribute Selector Header with checkbox and click handler', () => {
   // arrange
   const selectall = true;
   const obj = {
-    onClickHandler: () => {}
+    onClickHandler: () => {},
   };
 
   jest.spyOn(obj, 'onClickHandler');
 
-  const { container } = render(<AttributeSelectorHeader selectall={selectall} onClickSelectAllHandler={obj.onClickHandler} />);
+  const { container } = render(
+    <AttributeSelectorHeader
+      selectall={selectall}
+      onClickSelectAllHandler={obj.onClickHandler}
+    />
+  );
 
   // act
   fireEvent.click(container.querySelector('#selectall'));

@@ -63,7 +63,6 @@ const AttributeSelector = (props) => {
       />
     );
   }
-
   useEffect(onClickHandler, []);
 
   return (

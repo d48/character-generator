@@ -8,6 +8,8 @@
     "@commitlint/config-conventional": "^11.0.0",
     "downloadjs": "^1.4.7",
     "html-to-image": "^1.11.11",
+    "jspdf": "^3.0.3",
+    "openai": "^6.2.0",
     "prop-types": "^15.7.2",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",

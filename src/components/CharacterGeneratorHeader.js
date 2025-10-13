@@ -17,7 +17,7 @@ function CharacterGeneratorHeader(props) {
 
 CharacterGeneratorHeader.propTypes = {
   title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired
+  description: PropTypes.string.isRequired,
 };
 
 export default CharacterGeneratorHeader;

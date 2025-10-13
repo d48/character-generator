@@ -29,7 +29,7 @@ AttributeRow.propTypes = {
   checked: PropTypes.bool.isRequired,
   onChangeHandler: PropTypes.func.isRequired,
   format: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
-  result: PropTypes.node
+  result: PropTypes.node,
 };
 
 export default AttributeRow;
