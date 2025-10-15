@@ -26,6 +26,10 @@ jest.mock('jspdf', () => ({
 const originalConsole = { ...console };
 
 describe('IdeasGrid Generation Logic', () => {
+  // Mock window.open
+  const mockWindowOpen = jest.fn();
+  global.window.open = mockWindowOpen;
+
   const mockAttributes = [
     {
       name: 'Hair Color',
@@ -159,6 +163,187 @@ describe('IdeasGrid Generation Logic', () => {
       expect(() => {
         render(<IdeasGrid attributes={malformedAttributes} />);
       }).not.toThrow();
+    });
+  });
+
+  describe('View Generated Image Button', () => {
+    beforeEach(() => {
+      jest.clearAllMocks();
+      imageGeneration.mockResolvedValue('https://example.com/test-image.jpg');
+    });
+
+    test('should not show "View Generated Image" button initially', () => {
+      // Arrange & Act
+      render(<IdeasGrid attributes={mockAttributes} />);
+
+      // Assert
+      expect(screen.queryByText('View Generated Image')).not.toBeInTheDocument();
+    });
+
+    test('should show "View Generated Image" button after successful image generation', async () => {
+      // Arrange
+      render(<IdeasGrid attributes={mockAttributes} />);
+      
+      // Act - Generate an image first
+      const generateButton = screen.getByText('Generate Image from Idea');
+      fireEvent.click(generateButton);
+
+      // Wait for image generation to complete
+      await screen.findByAltText('Generated Character Image');
+
+      // Close modal
+      const closeButton = screen.getByText('×');
+      fireEvent.click(closeButton);
+
+      // Assert
+      expect(screen.getByText('View Generated Image')).toBeInTheDocument();
+    });
+
+    test('should reopen modal when "View Generated Image" button is clicked', async () => {
+      // Arrange
+      render(<IdeasGrid attributes={mockAttributes} />);
+      
+      // Generate image first
+      const generateButton = screen.getByText('Generate Image from Idea');
+      fireEvent.click(generateButton);
+      await screen.findByAltText('Generated Character Image');
+      
+      // Close modal
+      const closeButton = screen.getByText('×');
+      fireEvent.click(closeButton);
+
+      // Act - Click "View Generated Image"
+      const viewImageButton = screen.getByText('View Generated Image');
+      fireEvent.click(viewImageButton);
+
+      // Assert
+      expect(screen.getByText('Generated Character')).toBeInTheDocument();
+      expect(screen.getByAltText('Generated Character Image')).toBeInTheDocument();
+    });
+
+    test('should maintain image URL when modal is closed and reopened', async () => {
+      // Arrange
+      const testImageUrl = 'https://example.com/test-character.jpg';
+      imageGeneration.mockResolvedValue(testImageUrl);
+      
+      render(<IdeasGrid attributes={mockAttributes} />);
+      
+      // Generate image
+      const generateButton = screen.getByText('Generate Image from Idea');
+      fireEvent.click(generateButton);
+      await screen.findByAltText('Generated Character Image');
+      
+      // Verify initial image source
+      const initialImage = screen.getByAltText('Generated Character Image');
+      expect(initialImage).toHaveAttribute('src', testImageUrl);
+      
+      // Close modal
+      const closeButton = screen.getByText('×');
+      fireEvent.click(closeButton);
+
+      // Reopen modal
+      const viewImageButton = screen.getByText('View Generated Image');
+      fireEvent.click(viewImageButton);
+
+      // Assert - Same image URL should be preserved
+      const reopenedImage = screen.getByAltText('Generated Character Image');
+      expect(reopenedImage).toHaveAttribute('src', testImageUrl);
+    });
+  });
+
+  describe('Maximize Image Button', () => {
+    beforeEach(() => {
+      jest.clearAllMocks();
+      imageGeneration.mockResolvedValue('https://example.com/test-image.jpg');
+    });
+
+    test('should not show maximize button during loading state', async () => {
+      // Arrange
+      render(<IdeasGrid attributes={mockAttributes} />);
+      
+      // Act - Start image generation
+      const generateButton = screen.getByText('Generate Image from Idea');
+      fireEvent.click(generateButton);
+
+      // Assert - During loading, maximize button should not be visible
+      expect(screen.queryByText('Maximize')).not.toBeInTheDocument();
+      expect(screen.getByText('Generating illustration of Image Idea. Please wait')).toBeInTheDocument();
+    });
+
+    test('should show maximize button when image is loaded', async () => {
+      // Arrange
+      render(<IdeasGrid attributes={mockAttributes} />);
+      
+      // Act - Generate image
+      const generateButton = screen.getByText('Generate Image from Idea');
+      fireEvent.click(generateButton);
+
+      // Wait for image to load
+      await screen.findByAltText('Generated Character Image');
+
+      // Assert
+      expect(screen.getByText('Maximize')).toBeInTheDocument();
+    });
+
+    test('should open image in new tab when maximize button is clicked', async () => {
+      // Arrange
+      const testImageUrl = 'https://example.com/test-character.jpg';
+      imageGeneration.mockResolvedValue(testImageUrl);
+      
+      render(<IdeasGrid attributes={mockAttributes} />);
+      
+      // Generate image
+      const generateButton = screen.getByText('Generate Image from Idea');
+      fireEvent.click(generateButton);
+      await screen.findByAltText('Generated Character Image');
+
+      // Act - Click maximize button
+      const maximizeButton = screen.getByText('Maximize');
+      fireEvent.click(maximizeButton);
+
+      // Assert
+      expect(mockWindowOpen).toHaveBeenCalledWith(testImageUrl, '_blank');
+    });
+
+    test('should have proper tooltip on maximize button', async () => {
+      // Arrange
+      render(<IdeasGrid attributes={mockAttributes} />);
+      
+      // Generate image
+      const generateButton = screen.getByText('Generate Image from Idea');
+      fireEvent.click(generateButton);
+      await screen.findByAltText('Generated Character Image');
+
+      // Assert
+      const maximizeButton = screen.getByText('Maximize');
+      expect(maximizeButton).toHaveAttribute('title', 'Open image in new tab to zoom, save, or view full size');
+    });
+
+    test('should preserve maximize functionality when modal is reopened', async () => {
+      // Arrange
+      const testImageUrl = 'https://example.com/maximize-test.jpg';
+      imageGeneration.mockResolvedValue(testImageUrl);
+      
+      render(<IdeasGrid attributes={mockAttributes} />);
+      
+      // Generate image and close modal
+      const generateButton = screen.getByText('Generate Image from Idea');
+      fireEvent.click(generateButton);
+      await screen.findByAltText('Generated Character Image');
+      
+      const closeButton = screen.getByText('×');
+      fireEvent.click(closeButton);
+
+      // Reopen modal
+      const viewImageButton = screen.getByText('View Generated Image');
+      fireEvent.click(viewImageButton);
+
+      // Act - Click maximize in reopened modal
+      const maximizeButton = screen.getByText('Maximize');
+      fireEvent.click(maximizeButton);
+
+      // Assert
+      expect(mockWindowOpen).toHaveBeenCalledWith(testImageUrl, '_blank');
     });
   });
 });

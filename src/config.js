@@ -82,7 +82,7 @@ const ATTRIBUTES = [
     description: '',
     values: [
       'Frail',
-      'Fat',
+      'Heavy-set',
       'Thick',
       'Boney',
       'Medium',
@@ -127,9 +127,9 @@ const ATTRIBUTES = [
     values: [
       'Holding a sword',
       'Turning to look behind',
-      'Smoking a cigarette',
+      'Holding a drink',
       'Sitting on a rock',
-      'Jumping off a building',
+      'Jumping over something',
       'Crawling',
       'Holding a bow',
       'Picking something up',

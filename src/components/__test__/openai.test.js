@@ -94,7 +94,7 @@ describe('OpenAI Image Generation', () => {
       expect(result).toBe('https://example.com/generated-image.jpg');
       expect(mockGenerate).toHaveBeenCalledWith({
         model: 'dall-e-3',
-        prompt: expect.stringContaining(JSON.stringify(attributes)),
+        prompt: expect.stringContaining('blonde, blue, tall'),
         n: 1,
         size: '1792x1024',
       });
@@ -113,8 +113,8 @@ describe('OpenAI Image Generation', () => {
 
       // Assert
       const calledPrompt = mockGenerate.mock.calls[0][0].prompt;
-      expect(calledPrompt).toContain('cartoon-style 2D digital characters');
-      expect(calledPrompt).toContain('Character attributes:');
+      expect(calledPrompt).toContain('cartoon-style 2D digital character');
+      expect(calledPrompt).toContain('Character description:');
       expect(calledPrompt).toContain(attributes);
     });
 
@@ -215,7 +215,7 @@ describe('OpenAI Image Generation', () => {
 
       // Assert
       const calledPrompt = mockGenerate.mock.calls[0][0].prompt;
-      expect(calledPrompt).toContain('Character attributes: ');
+      expect(calledPrompt).toContain('Character description: ');
     });
 
     test('should handle complex object attributes', async () => {

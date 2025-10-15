@@ -11,20 +11,26 @@ function openAiConfig() {
   };
 }
 
-const SYSTEM_MESSAGE =
-  'You are an illustration generator that creates cartoon-style 2D digital characters based on a set of provided attributes. Always produce a clean, bold, flat-color cartoon with thick outlines, expressive facial features, and a playful aesthetic. The character must embody all attributes given (such as hairstyle, skin color, weight, height, clothing, props, emotions, and actions). Show the full character in a neutral background, posed naturally to match the description. Ensure proportions and details clearly reflect the attributes in a fun, exaggerated cartoon style';
+const SYSTEM_MESSAGE = 'Create a full-body, head-to-toe cartoon-style 2D digital character with bold outlines, flat colors, and expressive features. The character should reflect all given attributes (hairstyle, skin tone, body type, height, clothing, props, emotion, and action). Use a playful, clean, and polished art style with exaggerated proportions. Center the character on a neutral background. No text, logos, or extra shapes — only the character.'
 
 export default async function imageGeneration(attributes) {
   try {
     const openai = new OpenAI(openAiConfig());
 
     // Build a clear prompt from the system message and provided attributes
-    const attrsString =
-      typeof attributes === 'string' ? attributes : JSON.stringify(attributes);
-    const prompt = `${SYSTEM_MESSAGE}. Character attributes: ${attrsString}`;
-
-    console.log('Generating image with prompt:', prompt);
-
+    let attrsString;
+    if (typeof attributes === 'string') {
+      attrsString = attributes;
+    } else if (Array.isArray(attributes)) {
+      // Extract only the values (character descriptions) from attribute objects
+      attrsString = attributes
+        .map(attr => attr.value || attr)
+        .join(', ');
+    } else {
+      attrsString = JSON.stringify(attributes);
+    }
+    const prompt = `${SYSTEM_MESSAGE}. Character description: ${attrsString}`;
+    console.log('Generated Prompt:', prompt);
     const response = await openai.images.generate({
       model: 'dall-e-3',
       prompt: prompt,

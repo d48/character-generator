@@ -67,6 +67,9 @@ const IdeasGrid = (props) => {
 
   const handleGenerateImage = async () => {
     setLoading(true);
+    setShowImage(true); // Show modal immediately
+    setUrl(''); // Clear any previous URL
+    
     try {
       // Filter ideaTable to only include checked items
       const checkedAttributes = ideaTable.filter(
@@ -83,16 +86,16 @@ const IdeasGrid = (props) => {
         setErrorMessage('Error: Unable to generate image. Please try again.');
         alert(errorMessage);
         setLoading(false);
+        setShowImage(false);
         return;
       }
       console.log('Generated Image URL:', imageUrl);
       setUrl(imageUrl);
-      setShowImage(true);
-      // You can set this URL to state and display it in an <img> tag in your React component
       setLoading(false);
     } catch (error) {
       console.error('Error generating image:', error);
       setLoading(false);
+      setShowImage(false);
     }
   };
 
@@ -124,8 +127,16 @@ const IdeasGrid = (props) => {
             type="button"
             onClickHandler={handleGenerateImage}
             buttonLabel="Generate Image from Idea"
-            loading={loading}
+			icon={<BsArrowRepeat className={styles.iconStyle} />}
           />
+          {url && (
+            <ActionBar
+              type="button"
+              onClickHandler={() => setShowImage(true)}
+              buttonLabel="View Generated Image"
+              icon={<span>🖼️</span>}
+            />
+          )}
         </section>
 
         <IdeasTable
@@ -151,7 +162,6 @@ const IdeasGrid = (props) => {
             }}
             onClick={() => {
               setShowImage(false);
-              setUrl('');
             }}
           />
 
@@ -200,7 +210,6 @@ const IdeasGrid = (props) => {
               <button
                 onClick={() => {
                   setShowImage(false);
-                  setUrl('');
                 }}
                 style={{
                   background: '#495057',
@@ -229,48 +238,114 @@ const IdeasGrid = (props) => {
               style={{
                 flex: 1,
                 overflow: 'auto',
-                padding: '20px',
+                padding: window.innerWidth <= 768 ? '20px 20px 20px 35px' : '20px 30px',
               }}
             >
-              {/* Image */}
+              {/* Image or Loading */}
               <div
                 style={{
                   marginBottom: '24px',
                   textAlign: 'center',
                   width: '100%',
+                  margin: '0 auto',
                 }}
               >
-                <iframe
-                  src={url}
-                  style={{
-                    width: '100%',
-                    // Calculate height based on 1792x1024 aspect ratio (landscape)
-                    // Ensure it fits within available space
-                    height: (() => {
-                      const isMobile = window.innerWidth <= 768;
-
-                      if (isMobile) {
-                        // On mobile, use more vertical space - less room reserved for attributes
-                        const mobileHeight = window.innerHeight * 0.6; // Use 60% of screen height
-                        return Math.max(mobileHeight, 350) + 'px'; // Minimum 350px height
-                      } else {
-                        // Desktop calculation with proper aspect ratio
-                        const availableWidth =
-                          Math.min(window.innerWidth * 0.9, 1200) - 40;
-                        const aspectRatio = 1024 / 1792; // height / width for landscape image
-                        const calculatedHeight = availableWidth * aspectRatio;
-
-                        // Limit height to prevent scrolling - leave room for header and attributes
-                        const maxHeight = window.innerHeight * 0.95 - 250;
-                        return Math.min(calculatedHeight, maxHeight) + 'px';
-                      }
-                    })(),
-                    border: 'none',
-                    borderRadius: '8px',
-                    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
-                  }}
-                  title="Generated Character Image"
-                />
+                {loading ? (
+                  <div
+                    style={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      height: window.innerWidth <= 768 ? '300px' : '400px',
+                      backgroundColor: '#f8f9fa',
+                      border: '2px dashed #dee2e6',
+                      borderRadius: '8px',
+                      color: '#495057',
+                    }}
+                  >
+                    <div
+                      style={{
+                        animation: 'spin 1s linear infinite',
+                        border: '4px solid #f3f3f3',
+                        borderTop: '4px solid #007bff',
+                        borderRadius: '50%',
+                        width: '40px',
+                        height: '40px',
+                        marginBottom: '16px',
+                      }}
+                    />
+                    <p
+                      style={{
+                        fontSize: '18px',
+                        fontWeight: '500',
+                        margin: '0',
+                      }}
+                    >
+                      Generating illustration of Image Idea. Please wait
+                    </p>
+                  </div>
+                ) : (
+                  <div
+                    style={{
+                      position: 'relative',
+                      display: 'inline-block',
+                    }}
+                  >
+                    <img
+                      src={url}
+                      alt="Generated Character Image"
+                      style={{
+                        width: '100%',
+                        maxHeight: window.innerWidth <= 768 ? '300px' : '400px',
+                        objectFit: 'contain',
+                        border: 'none',
+                        borderRadius: '8px',
+                        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
+                        backgroundColor: '#f8f9fa',
+                      }}
+                      onError={(e) => {
+                        console.error('Failed to load image:', url);
+                        e.target.style.display = 'none';
+                      }}
+                    />
+                    
+                    {/* Maximize Button */}
+                    <button
+                      onClick={() => window.open(url, '_blank')}
+                      style={{
+                        position: 'absolute',
+                        top: '8px',
+                        right: '8px',
+                        background: 'rgba(0, 0, 0, 0.7)',
+                        color: 'white',
+                        border: 'none',
+                        borderRadius: '6px',
+                        padding: '8px 12px',
+                        cursor: 'pointer',
+                        fontSize: '12px',
+                        fontWeight: '500',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '4px',
+                        transition: 'all 0.2s ease',
+                        zIndex: 10,
+                      }}
+                      onMouseOver={(e) => {
+                        e.target.style.background = 'rgba(0, 0, 0, 0.9)';
+                        e.target.style.transform = 'scale(1.05)';
+                      }}
+                      onMouseOut={(e) => {
+                        e.target.style.background = 'rgba(0, 0, 0, 0.7)';
+                        e.target.style.transform = 'scale(1)';
+                      }}
+                      title="Open image in new tab to zoom, save, or view full size"
+                    >
+                      <span>🔍</span>
+                      Maximize
+                    </button>
+                  </div>
+                )}
               </div>
 
               {/* Attributes List */}
@@ -278,6 +353,7 @@ const IdeasGrid = (props) => {
                 <h4
                   style={{
                     margin: '0 0 16px 0',
+					paddingTop: '10px',
                     fontSize: '16px',
                     color: '#495057',
                     borderBottom: '2px solid #e9ecef',
@@ -292,6 +368,7 @@ const IdeasGrid = (props) => {
                     gridTemplateColumns:
                       window.innerWidth <= 768 ? '1fr' : '1fr 1fr',
                     gap: '12px',
+					
                   }}
                 >
                   {ideaTable
@@ -301,6 +378,8 @@ const IdeasGrid = (props) => {
                         key={index}
                         style={{
                           padding: '12px 16px',
+						  margin: '0 auto',
+						  width: '80%',
                           borderRadius: '8px',
                           border: '1px solid #dee2e6',
                         }}

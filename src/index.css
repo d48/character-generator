@@ -91,3 +91,8 @@ td:last-child {
 tbody tr:nth-child(odd) {
   background-color: rgb(252, 250, 250);
 }
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
