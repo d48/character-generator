@@ -63,7 +63,7 @@ const IdeasGrid = (props) => {
   const [errorMessage, setErrorMessage] = useState('');
   const tableRef = useRef();
   const [url, setUrl] = useState('');
-  const iframeContainerRef = useRef();
+  const modalRef = useRef();
 
   const handleGenerateImage = async () => {
     setLoading(true);
@@ -76,7 +76,7 @@ const IdeasGrid = (props) => {
         (item) => checkedItems[item.name] === true
       );
       console.log(
-        'Checked attributes for image generation:',
+        'Creating image with these attributes:',
         checkedAttributes
       );
 
@@ -167,7 +167,7 @@ const IdeasGrid = (props) => {
 
           {/* Modal Content */}
           <div
-            ref={iframeContainerRef}
+            ref={modalRef}
             style={{
               position: 'fixed',
               top: '50%',
