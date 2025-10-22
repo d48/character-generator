@@ -219,6 +219,7 @@ const IdeasGrid = (props) => {
                   width: '32px',
                   height: '32px',
                   color: 'white',
+                  margin: '0',
                   cursor: 'pointer',
                   fontSize: '18px',
                   fontWeight: 'bold',
@@ -238,7 +239,7 @@ const IdeasGrid = (props) => {
               style={{
                 flex: 1,
                 overflow: 'auto',
-                padding: window.innerWidth <= 768 ? '20px 20px 20px 35px' : '20px 30px',
+                padding: window.innerWidth <= 768 ? '20px 20px 20px 20px' : '20px 30px',
               }}
             >
               {/* Image or Loading */}
@@ -266,15 +267,26 @@ const IdeasGrid = (props) => {
                   >
                     <div
                       style={{
-                        animation: 'spin 1s linear infinite',
-                        border: '4px solid #f3f3f3',
-                        borderTop: '4px solid #007bff',
-                        borderRadius: '50%',
                         width: '40px',
                         height: '40px',
                         marginBottom: '16px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
                       }}
-                    />
+                    >
+                      <div
+                        style={{
+                          animation: 'spin 1s linear infinite',
+                          border: '4px solid #f8f9fa',
+                          borderTop: '4px solid #007bff',
+                          borderRadius: '50%',
+                          width: '40px',
+                          height: '40px',
+                          boxSizing: 'border-box',
+                        }}
+                      />
+                    </div>
                     <p
                       style={{
                         fontSize: '18px',
