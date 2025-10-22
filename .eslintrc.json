@@ -1,42 +1,30 @@
 {
-    "extends": [
-      "prettier",
-      "prettier/standard",
-      "prettier/react",
-      "plugin:react/recommended"
-    ],
-    "plugins": ["prettier"],
-    "rules": {
-      "prettier/prettier": [
-        "error",
-        {
-          "singleQuote": true,
-           "parser": "flow",
-           "endOfLine": "auto",
-           "trailingComma": "none",
-           "semi": true,
-           "tabWidth": 2,
-           "bracketSpacing": true,
-           "jsxBracketSameLine": true
-          }
-      ]
-    },
-    "parser": "@babel/eslint-parser",
-    "parserOptions": {
-      "requireConfigFile": false,
-      "babelOptions": {
-        "parserOpts": {
-          "plugins": ["jsx"]
-        }
-      }
-    },
-    "env": {
-      "browser": true
-    },
-    "settings": {
-      "react": {
-        "pragma": "React",
-        "version": "detect"
+  "extends": [
+    "prettier",
+    "prettier/standard",
+    "prettier/react",
+    "plugin:react/recommended"
+  ],
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": "off"
+  },
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "requireConfigFile": false,
+    "babelOptions": {
+      "parserOpts": {
+        "plugins": ["jsx"]
       }
     }
+  },
+  "env": {
+    "browser": true
+  },
+  "settings": {
+    "react": {
+      "pragma": "React",
+      "version": "detect"
+    }
   }
+}

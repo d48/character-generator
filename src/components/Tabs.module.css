@@ -17,16 +17,13 @@
   border-top-left-radius: 0;
 }
 
-
 .content section {
   flex-basis: 100%;
 }
 
 .content div {
   flex-basis: 25%;
-  margin-right: 25px;
 }
-
 .tabHeader {
   background-color: #efefef;
   color: #555;
@@ -83,20 +80,14 @@
   margin-right: 5px;
 }
 
-@media only screen 
-  and (min-device-width: 375px) 
-  and (max-device-width: 812px) 
-  and (-webkit-min-device-pixel-ratio: 3)
-  and (orientation: portrait) { 
-
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {
   .content {
     border: none;
     padding: 20px;
     margin-bottom: 10px;
   }
-  
+
   .tabHeader {
     border: none;
   }
 }
-

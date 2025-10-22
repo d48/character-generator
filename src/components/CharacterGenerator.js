@@ -7,10 +7,11 @@ import { Tabs, Tab, TabHeader } from './Tabs';
 import { BsGridFill, BsBrightnessHighFill } from 'react-icons/bs';
 import styles from './Tabs.module.css';
 import stylesApp from './CharacterGenerator.module.css';
+import imageGeneration from '../lib/openai';
 
 const ACTIVETAB = {
   GENERATOR: 'generator',
-  IDEASGRID: 'ideasgrid'
+  IDEASGRID: 'ideasgrid',
 };
 
 const CharacterGenerator = (props) => {
@@ -29,32 +30,8 @@ const CharacterGenerator = (props) => {
         description={settings.description}
       />
       <Tabs activeTab={activeTab} ACTIVETAB={ACTIVETAB}>
-        <TabHeader>
-          <h2
-            className={
-              activeTab === ACTIVETAB.IDEASGRID ? styles.tabHeaderActive : ''
-            }
-            onClick={() => activeTabHandler(ACTIVETAB.IDEASGRID)}
-            id="ideasgrid">
-            <BsGridFill className={styles.iconStyle} /> Ideas Grid
-          </h2>
-          <h2
-            className={
-              activeTab === ACTIVETAB.GENERATOR ? styles.tabHeaderActive : ''
-            }
-            onClick={() => activeTabHandler(ACTIVETAB.GENERATOR)}
-            id="generator">
-            <BsBrightnessHighFill className={styles.iconStyle} /> More Ideas
-          </h2>
-        </TabHeader>
         <Tab id="ideasgrid" activeTabHandler={activeTabHandler}>
           <IdeasGrid attributes={ideasGrid} />
-        </Tab>
-        <Tab id="generator">
-          <AttributeSelector
-            buttonLabel={settings.buttonLabel}
-            attributes={attributes}
-          />
         </Tab>
       </Tabs>
       <section className={`row ${stylesApp.footer}`}>
@@ -63,7 +40,8 @@ const CharacterGenerator = (props) => {
           <a
             href="https://github.com/d48"
             target="_blank"
-            rel="noopener noreferrer">
+            rel="noopener noreferrer"
+          >
             Ryan Regalado
           </a>
         </p>
@@ -75,7 +53,7 @@ const CharacterGenerator = (props) => {
 CharacterGenerator.propTypes = {
   attributes: PropTypes.array,
   settings: PropTypes.object,
-  ideasGrid: PropTypes.array
+  ideasGrid: PropTypes.array,
 };
 
 export default CharacterGenerator;

@@ -56,14 +56,9 @@ h2 {
   }
 }
 
-@media only screen 
-  and (min-device-width: 375px) 
-  and (max-device-width: 812px) 
-  and (-webkit-min-device-pixel-ratio: 3)
-  and (orientation: portrait) { 
-
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {
   p {
-    margin-bottom: 1.0em;
+    margin-bottom: 1em;
   }
 
   #character-generator-container {
@@ -77,12 +72,10 @@ h2 {
     padding: 10px;
   }
 
-
   #character-generator-container > section > header h1 {
     font-size: 2em;
     text-transform: uppercase;
   }
-
 
   #character-generator-container > section > header h2 {
     font-size: 1.5em;
@@ -97,4 +90,9 @@ td:last-child {
 
 tbody tr:nth-child(odd) {
   background-color: rgb(252, 250, 250);
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }

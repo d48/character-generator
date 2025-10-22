@@ -1,4 +1,5 @@
 import React from 'react';
+import { BsArrowRepeat } from 'react-icons/bs';
 import styles from './ActionBar.module.css';
 
 const ActionBar = (props) => {
@@ -6,16 +7,28 @@ const ActionBar = (props) => {
     icon = '',
     buttonLabel,
     onClickHandler,
-    type = 'button-primary'
+    type = 'button-primary',
+    loading = false,
   } = {
-    ...props
+    ...props,
   };
 
   return (
     <button
       onClick={onClickHandler}
-      className={`${type} ${styles.buttonPrimary}`}>
-      {icon} {buttonLabel}
+      className={`${type} ${styles.buttonPrimary}`}
+      disabled={loading}
+    >
+      {loading ? (
+        <>
+          <BsArrowRepeat className={`${styles.iconStyle} ${styles.spinning}`} />
+          Loading...
+        </>
+      ) : (
+        <>
+          {icon} {buttonLabel}
+        </>
+      )}
     </button>
   );
 };
