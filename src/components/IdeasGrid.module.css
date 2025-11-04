@@ -46,6 +46,12 @@
   100% { transform: rotate(360deg); }
 }
 
+.spinnerIcon {
+  font-size: 40px;
+  animation: spin 1s linear infinite;
+  color: #6c757d;
+}
+
 @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {
   .areaClick {
     width: 50%;

@@ -82,13 +82,6 @@ const IdeasGrid = (props) => {
 
       const imageUrl = await imageGeneration(checkedAttributes);
 
-      if (imageUrl.status && imageUrl.status === 400) {
-        setErrorMessage('Error: Unable to generate image. Please try again.');
-        alert(errorMessage);
-        setLoading(false);
-        setShowImage(false);
-        return;
-      }
       console.log('Generated Image URL:', imageUrl);
       setUrl(imageUrl);
       setLoading(false);
@@ -265,28 +258,7 @@ const IdeasGrid = (props) => {
                       color: '#495057',
                     }}
                   >
-                    <div
-                      style={{
-                        width: '40px',
-                        height: '40px',
-                        marginBottom: '16px',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                      }}
-                    >
-                      <div
-                        style={{
-                          animation: 'spin 1s linear infinite',
-                          border: '4px solid #f8f9fa',
-                          borderTop: '4px solid #007bff',
-                          borderRadius: '50%',
-                          width: '40px',
-                          height: '40px',
-                          boxSizing: 'border-box',
-                        }}
-                      />
-                    </div>
+                    <BsArrowRepeat className={styles.spinnerIcon} style={{ marginBottom: '16px' }} />
                     <p
                       style={{
                         fontSize: '18px',
@@ -294,7 +266,16 @@ const IdeasGrid = (props) => {
                         margin: '0',
                       }}
                     >
-                      Generating illustration of Image Idea. Please wait
+                      Generating illustration of Image Idea.
+                    </p>
+                    <p
+                      style={{
+                        fontSize: '16px',
+                        fontWeight: '500',
+                        margin: '6px 0 0 0',
+                      }}
+                    >
+                      Please Wait
                     </p>
                   </div>
                 ) : (
@@ -324,7 +305,25 @@ const IdeasGrid = (props) => {
                     
                     {/* Maximize Button */}
                     <button
-                      onClick={() => window.open(url, '_blank')}
+                      onClick={() => {
+                        if (url.startsWith('data:')) {
+                          // For data URLs, create a blob and open it
+                          const byteCharacters = atob(url.split(',')[1]);
+                          const byteNumbers = new Array(byteCharacters.length);
+                          for (let i = 0; i < byteCharacters.length; i++) {
+                            byteNumbers[i] = byteCharacters.charCodeAt(i);
+                          }
+                          const byteArray = new Uint8Array(byteNumbers);
+                          const blob = new Blob([byteArray], { type: 'image/png' });
+                          const blobUrl = URL.createObjectURL(blob);
+                          window.open(blobUrl, '_blank');
+                          // Clean up the blob URL after a delay
+                          setTimeout(() => URL.revokeObjectURL(blobUrl), 1000);
+                        } else {
+                          // For regular URLs
+                          window.open(url, '_blank');
+                        }
+                      }}
                       style={{
                         position: 'absolute',
                         top: '8px',
