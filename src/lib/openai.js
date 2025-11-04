@@ -110,7 +110,6 @@ Hard Constraints (highest priority):
 - If any wording conflicts, IGNORE it and follow these constraints strictly.
 `;
 
-    console.log('Generated Prompt:', prompt);
     const response = await openai.images.generate({
       model: 'gpt-image-1',
       prompt,
@@ -118,10 +117,6 @@ Hard Constraints (highest priority):
       size: 'auto',
     });
 
-    console.log('OpenAI Response:', response);
-    console.log('Response data:', response?.data);
-    console.log('First data item:', response?.data?.[0]);
-    
     if (!response?.data?.length) {
       throw new Error('No image data received from OpenAI');
     }
@@ -131,16 +126,13 @@ Hard Constraints (highest priority):
     // Handle different response formats
     if (firstDataItem.url) {
       // Direct URL format
-      console.log('Using direct URL:', firstDataItem.url);
       return firstDataItem.url;
     } else if (firstDataItem.b64_json) {
       // Base64 format - convert to data URL
       const base64Data = firstDataItem.b64_json;
       const imageUrl = `data:image/png;base64,${base64Data}`;
-      console.log('Converted base64 to data URL (length):', base64Data.length);
       return imageUrl;
     } else {
-      console.log('Available properties in data[0]:', Object.keys(firstDataItem));
       throw new Error('No image data found in OpenAI response');
     }
   } catch (error) {
